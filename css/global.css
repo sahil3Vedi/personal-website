@@ -1,0 +1,18 @@
+.pageWrapper{
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.pageHeader{
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+
+.pageHeaderDescription{
+    font-size: 20px;
+    text-align: center;
+}

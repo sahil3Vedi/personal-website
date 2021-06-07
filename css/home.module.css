@@ -1,0 +1,12 @@
+.sectionHeader{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.skillLogos{
+    display: flex;
+    justify-content: center;
+}
