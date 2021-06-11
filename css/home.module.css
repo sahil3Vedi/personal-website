@@ -1,7 +1,7 @@
 .sectionHeader{
     font-weight: bold;
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 10px;
     text-transform: uppercase;
     color: #f9ea8f;
@@ -28,6 +28,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 30px;
+    margin: 10px 0px;
 }
 
 @media screen and (max-width: 600px) {

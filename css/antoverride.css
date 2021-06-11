@@ -15,3 +15,26 @@
 .ant-progress-success-bg, .ant-progress-bg {
     background-color: #09d79d;
 }
+
+.ant-btn{
+    margin-bottom: 10px;
+}
+
+.ant-card{
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.ant-card-head-title{
+    color: #aff1da;
+    font-weight: bold;
+    width: 100%;
+}
+
+.ant-card-head{
+    border-bottom: 1px solid #626262;
+}
+
+.ant-list-split .ant-list-item {
+    border-bottom: 1px solid #626262;
+}
