@@ -1,0 +1,17 @@
+.ant-list-item-meta-title{
+    color: white;
+    font-size: 20px;
+}
+
+.ant-progress-text {
+    color: white;
+}
+
+.ant-list-item{
+    color: white;
+    font-size: 20px;
+}
+
+.ant-progress-success-bg, .ant-progress-bg {
+    background-color: #09d79d;
+}

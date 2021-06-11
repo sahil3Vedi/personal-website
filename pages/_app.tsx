@@ -2,6 +2,7 @@
 import { AppProps } from 'next/app'
 // CSS
 import 'antd/dist/antd.css'
+import '../css/antoverride.css'
 import '../css/global.css'
 
 function MyApp({ Component, pageProps }: AppProps) {

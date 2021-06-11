@@ -1,15 +1,17 @@
-import Link from 'next/link'
 import HomeStyles from '../css/home.module.css'
-import { List, Avatar, Space, Tooltip, Progress } from 'antd'
-import profileImage from '../assets/sahil.jpg'
+import { List, Avatar, Progress } from 'antd'
+import { GithubOutlined, MailOutlined } from '@ant-design/icons'
+const profileImage = require('../assets/sahil.jpg')
+
 
 const interests = [
     'Operating Systems',
+    'Software Development',
+    'Machine Learning',
     'Cybersecurity',
     'DevOps',
-    'Machine Learning',
-    'Mathematics',
-    'System Design'
+    'Systems Engineering',
+    'Mathematics'
 ]
 
 const skills = [
@@ -26,17 +28,27 @@ const skills = [
 
 const IndexPage = () => (
   <div>
+    <div className={HomeStyles.coverPicture}></div>
     <div className="pageWrapper">
-        <div className={HomeStyles.skillLogos}><Avatar size={200} src={profileImage}/></div>
-        <h1 className="pageHeader">Hi, I am Sahil Trivedi</h1>
-        <p className="pageHeaderDescription">I am a Fullstack Developer<br/>Working remotely from Vadodara, Gujarat, India.</p>
-        <p className={HomeStyles.sectionHeader}>My Skills</p>
-        <List size="large" bordered dataSource={skills} renderItem={item => <List.Item>{item}</List.Item>} renderItem={item => (
-            <List.Item><List.Item.Meta avatar={<Avatar shape="square" src={item.src} />} title={<a href="https://ant.design">{item.title}</a>} description=<Progress percent={item.progress}/>/></List.Item>
-        )}/>
-        <p className={HomeStyles.sectionHeader}>My Interests</p>
-        <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
-        <p className={HomeStyles.sectionHeader}>My Projects</p>
+        <div className={HomeStyles.profileHeader}>
+            <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
+            <div>
+                <h1 className="pageHeader">Sahil Trivedi</h1>
+                <p className="pageHeaderDescription">Software Engineer (FullStack + Machine Learning)<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
+            </div>
+        </div>
+        <div className={HomeStyles.displayInfo}>
+            <div>
+                <p className={HomeStyles.sectionHeader}>Skills</p>
+                <List size="large" bordered dataSource={skills} renderItem={(item) => (
+                    <List.Item><List.Item.Meta avatar={<Avatar shape="square" src={item.src} />} title={item.title} description={<Progress percent={item.progress}/>}/></List.Item>
+                )}/>
+            </div>
+            <div>
+                <p className={HomeStyles.sectionHeader}>Interests</p>
+                <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
+            </div>
+        </div>
     </div>
   </div>
 )
