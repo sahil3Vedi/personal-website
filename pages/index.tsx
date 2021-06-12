@@ -16,6 +16,7 @@ const qrgal6 = require('../public/static/Qrips/Scr6.png')
 const qrgal7 = require('../public/static/Qrips/Scr7.png')
 const qrgal8 = require('../public/static/Qrips/Scr8.png')
 const qrgal9 = require('../public/static/Qrips/Scr9.png')
+const qrgal10 = require('../public/static/Qrips/Scr10.png')
 // IDOC
 const idgal1 = require('../public/static/IDOC/Scr 1.png')
 const idgal2 = require('../public/static/IDOC/Scr 2.png')
@@ -30,21 +31,21 @@ const idgal10 = require('../public/static/IDOC/Scr10.png')
 
 
 const interests = [
-    'Operating Systems',
-    'Software Development',
     'Machine Learning',
-    'Cybersecurity',
+    'Software Development',
     'DevOps',
+    'Mathematics',
+    'Operating Systems',
+    'Cybersecurity',
     'Software Testing',
-    'Systems Engineering',
-    'Mathematics'
+    'Systems Engineering'
 ]
 
 const skills = [
-    {title:'ReactJS', src: "https://www.svgrepo.com/show/303157/react-logo.svg", progress: 90},
-    {title:'NodeJS', src: "https://www.svgrepo.com/show/303266/nodejs-icon-logo.svg", progress: 90},
     {title:'Python', src:"https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg", progress: 90},
     {title:'Tensorflow', src: "https://miro.medium.com/max/2000/1*eJWbxmatlWJCNuhJqXB_dw.png", progress: 90},
+    {title:'ReactJS', src: "https://www.svgrepo.com/show/303157/react-logo.svg", progress: 90},
+    {title:'NodeJS', src: "https://www.svgrepo.com/show/303266/nodejs-icon-logo.svg", progress: 90},
     {title:'C++', src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg", progress: 80},
     {title:'Typescript', src: "https://www.svgrepo.com/show/303600/typescript-logo.svg", progress: 80},
     {title:'MongoDB', src: "https://static.tumblr.com/lbtm3t2/8PAn0kziu/mongodb-logo.png", progress: 80},
@@ -55,26 +56,53 @@ const skills = [
 
 const projects = [
     {
+        title:"FaceGAN",
+        description:"An implementation of the NVidia StyleGAN that manipulates the vectors in the input space of a pre-trained Generator to produce images.",
+        learning: "This project was an excellent primer for the world of Generative Networks. I'm excited to work on similar projects",
+        features:["An original image is taken and StyleGAN generates it's closest approximation to that image", "The latent vectors of StyleGAN generated approximations are derived", "Using pre selected vectors the latent space of StyleGAN is manipulated to produce the desired changes"],
+        tags: ["Python", "Tensorflow","StyleGAN"],
+        github: "https://github.com/sahil3Vedi/Face-Generator",
+        gallery: [],
+    },
+    {
         title:"Clinic Management ERP System",
         description:"A Clinic Management System that can be used by General Practioners to manage their patients, reports, issue prescriptions, and assess patient metrics.",
         learning: "This project introduced me to the challenges of monetizing a SaaS product.",
         features:["Integrated Dashboard for Doctors to oversee patient metrics", "Printing Prescriptions and Invoices", "Inventory Management for In-House Medication"],
-        tags: ["NextJS","NodeJS","Typescript"],
+        tags: ["NextJS","NodeJS","TypeScript"],
         github: "",
         gallery: [gpgal1,gpgal2,gpgal3,gpgal4,gpgal6],
+    },
+    {
+        title:"Soccer Prediction",
+        description:"Predicting Soccer Matches with Poisson Distribution. The algorithm accounts for the past matches from Soccer Leagues from 8 European nations and predicts the final scoreline.",
+        learning: "This was a fun side project although I did not bet (a lot of) money on the model. Further optimisations are required before it beats the bookmaker.",
+        features:["The past home and away performances are fetched from the CSV", "Attack and Defense Strengths are calculated for the Home and Away teams to get the most likely number of goals by each side", "A Poisson Distribution is applied to generate the probability distribution of the scores"],
+        tags: ["Python", "Scikit","Pandas"],
+        github: "https://github.com/sahil3Vedi/Soccer-Prediction",
+        gallery: [],
     },
     {
         title:"Ecommerce Platform & CMS",
         description:"An Ecommerce Platform with separate logins for Suppliers, Admins, and Customers.",
         learning: "This project provided a solid grasp over Node APIs, Server Side Rendering, and React Contexts",
         features:["Distinct logins for Customers, Suppliers & Admins", "Razorpay Integration for Payments", "CMS for Suppliers and Admins to Track Orders and Update Inventory in Real Time"],
-        tags: ["NextJS","NodeJS","Typescript"],
+        tags: ["NextJS","NodeJS","TypeScript"],
         github: "",
         gallery: [qrgal5,qrgal6,qrgal7,qrgal8,qrgal9],
     },
     {
+        title:"Self Driving Car with Arduino",
+        description:"Implementing a Neural Network that pilots a self driving car, trained using data obtained from human pilots",
+        learning: "This was my final year undergrad project. It was interesting interfacing with electronics and implementing a low latency Neural Network in C++",
+        features:["During Training, an SD Card logs the RC commands issued by a human pilot. At the same time, the sensor logs distance data from the surroundings.", "A neural network is trained with Keras that associates the sensor data to the commands", "Once trained, the weights of the model are parsed to C++"],
+        tags: ["C++", "Arduino","Keras"],
+        github: "https://github.com/sahil3Vedi/Self-Driving-Car-Arduino",
+        gallery: [],
+    },
+    {
         title:"Document Management System",
-        description:"A Document Management System commissioned for use by iComply LifeSciences.",
+        description:"A Document Management System commissioned for use by iComply LifeScience Solutions.",
         learning: "This project served as a great foundation for learning React.",
         features:["Role based user priviledges", "Document creation, editing, and deletion without leaving the application", "Auto-signin/signout & inactive user signout","Light Mode & Dark Mode"],
         tags:["ReactJS","React Hooks","Redux"],
@@ -110,7 +138,7 @@ const IndexPage = () => {
                   <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
                   <div>
                       <h1 className="pageHeader">Sahil Trivedi</h1>
-                      <p className="pageHeaderDescription">Software Engineer (FullStack + Machine Learning)<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
+                      <p className="pageHeaderDescription">Software Engineer (Machine Learning)<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
                   </div>
               </div>
               <div className={HomeStyles.displayInfo}>
