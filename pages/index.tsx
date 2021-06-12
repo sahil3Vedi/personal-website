@@ -1,7 +1,32 @@
+import { useState } from 'react'
 import HomeStyles from '../css/home.module.css'
-import { List, Avatar, Progress, Card, Button, message, Tag } from 'antd'
-import { GithubOutlined, MailOutlined, GlobalOutlined } from '@ant-design/icons'
-const profileImage = require('../assets/sahil.jpg')
+import { List, Avatar, Progress, Card, Button, Tag, Modal, Carousel } from 'antd'
+import { GithubOutlined, MailOutlined, EyeOutlined } from '@ant-design/icons'
+// IMAGES
+const profileImage = require('../public/static/sahil.jpg')
+// GPMitra
+const gpgal1 = require('../public/static/GPMitra/Scr1.png')
+const gpgal2 = require('../public/static/GPMitra/Scr2.png')
+const gpgal3 = require('../public/static/GPMitra/Scr3.png')
+const gpgal4 = require('../public/static/GPMitra/Scr4.png')
+const gpgal6 = require('../public/static/GPMitra/Scr6.png')
+// Qrips
+const qrgal5 = require('../public/static/Qrips/Scr5.png')
+const qrgal6 = require('../public/static/Qrips/Scr6.png')
+const qrgal7 = require('../public/static/Qrips/Scr7.png')
+const qrgal8 = require('../public/static/Qrips/Scr8.png')
+const qrgal9 = require('../public/static/Qrips/Scr9.png')
+// IDOC
+const idgal1 = require('../public/static/IDOC/Scr 1.png')
+const idgal2 = require('../public/static/IDOC/Scr 2.png')
+const idgal3 = require('../public/static/IDOC/Scr 3.png')
+const idgal4 = require('../public/static/IDOC/Scr 4.png')
+const idgal5 = require('../public/static/IDOC/Scr 5.png')
+const idgal6 = require('../public/static/IDOC/Scr 6.png')
+const idgal7 = require('../public/static/IDOC/Scr 7.png')
+const idgal8 = require('../public/static/IDOC/Scr 8.png')
+const idgal9 = require('../public/static/IDOC/Scr 9.png')
+const idgal10 = require('../public/static/IDOC/Scr10.png')
 
 
 const interests = [
@@ -36,7 +61,7 @@ const projects = [
         features:["Integrated Dashboard for Doctors to oversee patient metrics", "Printing Prescriptions and Invoices", "Inventory Management for In-House Medication"],
         tags: ["NextJS","NodeJS","Typescript"],
         github: "",
-        link: "http://www.gpmitra.com",
+        gallery: [gpgal1,gpgal2,gpgal3,gpgal4,gpgal6],
     },
     {
         title:"Ecommerce Platform & CMS",
@@ -45,7 +70,7 @@ const projects = [
         features:["Distinct logins for Customers, Suppliers & Admins", "Razorpay Integration for Payments", "CMS for Suppliers and Admins to Track Orders and Update Inventory in Real Time"],
         tags: ["NextJS","NodeJS","Typescript"],
         github: "",
-        link: "http://www.qrips.com/products/cheese",
+        gallery: [qrgal5,qrgal6,qrgal7,qrgal8,qrgal9],
     },
     {
         title:"Document Management System",
@@ -54,46 +79,66 @@ const projects = [
         features:["Role based user priviledges", "Document creation, editing, and deletion without leaving the application", "Auto-signin/signout & inactive user signout","Light Mode & Dark Mode"],
         tags:["ReactJS","React Hooks","Redux"],
         github: "",
-        link: "",
+        gallery: [idgal1,idgal2,idgal3,idgal4,idgal5,idgal6,idgal7,idgal8,idgal9,idgal10],
     }
 ]
 
-const IndexPage = () => (
-  <div>
-    <div className={HomeStyles.coverPicture}></div>
-    <div className="pageWrapper">
-        <div className={HomeStyles.profileHeader}>
-            <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
-            <div>
-                <h1 className="pageHeader">Sahil Trivedi</h1>
-                <p className="pageHeaderDescription">Software Engineer (FullStack + Machine Learning)<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
-            </div>
+const IndexPage = () => {
+
+    const [gallery, setGallery] = useState([])
+    const [galleryModal, setGalleryModal] = useState(false)
+
+    const galModal = (
+        <Modal centered visible={galleryModal} width="85%" destroyOnClose footer={null} onCancel={()=>setGalleryModal(false)} title="View Gallery">
+            <Carousel effect="fade" autoplay>
+                {gallery.map((d,count)=><div key={count} className="galleryImageDiv"><img className="galleryImage" src={d}/></div>)}
+            </Carousel>
+        </Modal>
+    )
+
+    const viewGallery = (gal: any) => {
+        setGallery(gal)
+        setGalleryModal(true)
+    }
+
+    return(
+        <div>
+            {galModal}
+          <div className={HomeStyles.coverPicture}></div>
+          <div className="pageWrapper">
+              <div className={HomeStyles.profileHeader}>
+                  <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
+                  <div>
+                      <h1 className="pageHeader">Sahil Trivedi</h1>
+                      <p className="pageHeaderDescription">Software Engineer (FullStack + Machine Learning)<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
+                  </div>
+              </div>
+              <div className={HomeStyles.displayInfo}>
+                  <div>
+                      <p className={HomeStyles.sectionHeader}>Skills</p>
+                      <List size="large" bordered dataSource={skills} renderItem={(item) => (
+                          <List.Item><List.Item.Meta avatar={<Avatar shape="square" src={item.src} />} title={item.title} description={<Progress percent={item.progress}/>}/></List.Item>
+                      )}/>
+                  </div>
+                  <div>
+                      <p className={HomeStyles.sectionHeader}>Interests</p>
+                      <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
+                  </div>
+              </div>
+              <p className={HomeStyles.sectionHeader}>Featured Projects</p>
+              <List grid={{ gutter: 16, xxl: 3, xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }} dataSource={projects} renderItem={item => (
+                  <List.Item><Card title={item.title}>
+                      <p>{item.description}</p>
+                      <p>{item.learning}</p>
+                      {item.features.map((d,count)=><p key={count}>{`- ${d}`}</p>)}
+                      <div style={{marginBottom:"20px"}}>{item.tags.map((t,count)=><Tag color="cyan" key={count}>{t}</Tag>)}</div>
+                      {item.github ? <Button icon={<GithubOutlined/>} onClick={()=>window.open(item.github, '_blank')}>Source Code</Button> : null}
+                      {item.gallery.length ? <Button icon={<EyeOutlined/>} onClick={()=>viewGallery(item.gallery)}>Gallery</Button> : null}
+                  </Card></List.Item>
+              )}/>
+          </div>
         </div>
-        <div className={HomeStyles.displayInfo}>
-            <div>
-                <p className={HomeStyles.sectionHeader}>Skills</p>
-                <List size="large" bordered dataSource={skills} renderItem={(item) => (
-                    <List.Item><List.Item.Meta avatar={<Avatar shape="square" src={item.src} />} title={item.title} description={<Progress percent={item.progress}/>}/></List.Item>
-                )}/>
-            </div>
-            <div>
-                <p className={HomeStyles.sectionHeader}>Interests</p>
-                <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
-            </div>
-        </div>
-        <p className={HomeStyles.sectionHeader}>Featured Projects</p>
-        <List grid={{ gutter: 16, xxl: 3, xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }} dataSource={projects} renderItem={item => (
-            <List.Item><Card title={item.title}>
-                <p>{item.description}</p>
-                <p>{item.learning}</p>
-                {item.features.map((d,count)=><p key={count}>{`- ${d}`}</p>)}
-                <div style={{marginBottom:"20px"}}>{item.tags.map((t,count)=><Tag color="cyan" key={count}>{t}</Tag>)}</div>
-                {item.github ? <Button icon={<GithubOutlined/>} onClick={()=>window.open(item.github, '_blank')}>Source Code</Button> : null}
-                {item.link ? <Button icon={<GlobalOutlined/>} onClick={()=>window.open(item.link, '_blank')}>Live Deploy</Button> : null}
-            </Card></List.Item>
-        )}/>
-    </div>
-  </div>
-)
+    )
+}
 
 export default IndexPage

@@ -38,3 +38,34 @@
 .ant-list-split .ant-list-item {
     border-bottom: 1px solid #626262;
 }
+
+.ant-carousel .slick-dots-bottom {
+    background-color: #2f2f2f;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ant-modal-header {
+    background-color: #2f2f2f;
+    border-bottom: none;
+}
+
+.ant-modal-close-x {
+    color: #f9ea8f;
+}
+
+.ant-modal-title {
+    color: #f9ea8f;
+}
+
+.ant-modal-body{
+    background-color: #3f3f3f;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+    background: #aff1da;
+}
+
+.ant-carousel .slick-dots-bottom {
+    bottom: -20px;
+}
