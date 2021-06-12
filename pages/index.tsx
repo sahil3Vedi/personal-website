@@ -45,7 +45,7 @@ const projects = [
         features:["Distinct logins for Customers, Suppliers & Admins", "Razorpay Integration for Payments", "CMS for Suppliers and Admins to Track Orders and Update Inventory in Real Time"],
         tags: ["NextJS","NodeJS","Typescript"],
         github: "",
-        link: "http://www.qrips.com",
+        link: "http://www.qrips.com/products/cheese",
     },
     {
         title:"Document Management System",
