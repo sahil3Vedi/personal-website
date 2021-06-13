@@ -28,6 +28,8 @@ const idgal7 = require('../public/static/IDOC/Scr 7.png')
 const idgal8 = require('../public/static/IDOC/Scr 8.png')
 const idgal9 = require('../public/static/IDOC/Scr 9.png')
 const idgal10 = require('../public/static/IDOC/Scr10.png')
+// XMR
+const xmrqr = require('../public/static/xmrqr.png')
 
 
 const interests = [
@@ -49,9 +51,9 @@ const skills = [
     {title:'C++', src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg", progress: 80},
     {title:'Typescript', src: "https://www.svgrepo.com/show/303600/typescript-logo.svg", progress: 80},
     {title:'MongoDB', src: "https://static.tumblr.com/lbtm3t2/8PAn0kziu/mongodb-logo.png", progress: 80},
-    {title:'AWS', src: "https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/1614/2019/07/21743298_1406722539365107_4308832733562613967_n.png", progress: 80},
+    {title:'SQL', src: "https://www.svgrepo.com/show/138912/database.svg", progress: 80},
+    {title:'AWS', src: "https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/1614/2019/07/21743298_1406722539365107_4308832733562613967_n.png", progress: 70},
     {title:'Docker', src: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/97_Docker_logo_logos-512.png", progress: 70},
-    {title:'SQL', src: "https://www.svgrepo.com/show/138912/database.svg", progress: 70},
 ]
 
 const projects = [
@@ -77,7 +79,7 @@ const projects = [
         title:"Soccer Prediction",
         description:"Predicting Soccer Matches with Poisson Distribution. The algorithm accounts for the past matches from Soccer Leagues from 8 European nations and predicts the final scoreline.",
         learning: "This was a fun side project although I did not bet (a lot of) money on the model. Further optimisations are required before it beats the bookmaker.",
-        features:["The past home and away performances are fetched from the CSV", "Attack and Defense Strengths are calculated for the Home and Away teams to get the most likely number of goals by each side", "A Poisson Distribution is applied to generate the probability distribution of the scores"],
+        features:["The past home and away performances are fetched from the CSV", "Attack and Defense Strengths are calculated for the Home and Away teams to get the most likely number of goals by each side", "A Poisson Distribution is applied to generate the probability distribution for the scores"],
         tags: ["Python", "Scikit","Pandas"],
         github: "https://github.com/sahil3Vedi/Soccer-Prediction",
         gallery: [],
@@ -89,7 +91,7 @@ const projects = [
         features:["Distinct logins for Customers, Suppliers & Admins", "Razorpay Integration for Payments", "CMS for Suppliers and Admins to Track Orders and Update Inventory in Real Time"],
         tags: ["NextJS","NodeJS","TypeScript"],
         github: "",
-        gallery: [qrgal5,qrgal6,qrgal7,qrgal8,qrgal9],
+        gallery: [qrgal5,qrgal6,qrgal7,qrgal8,qrgal9,qrgal10],
     },
     {
         title:"Self Driving Car with Arduino",
@@ -115,12 +117,19 @@ const IndexPage = () => {
 
     const [gallery, setGallery] = useState([])
     const [galleryModal, setGalleryModal] = useState(false)
+    const [xmrmodal, setXmrModal] = useState(false)
 
     const galModal = (
         <Modal centered visible={galleryModal} width="85%" destroyOnClose footer={null} onCancel={()=>setGalleryModal(false)} title="View Gallery">
             <Carousel effect="fade" autoplay>
                 {gallery.map((d,count)=><div key={count} className="galleryImageDiv"><img className="galleryImage" src={d}/></div>)}
             </Carousel>
+        </Modal>
+    )
+
+    const xmrModal = (
+        <Modal centered visible={xmrmodal} width="300px" destroyOnClose footer={null} onCancel={()=>setXmrModal(false)} title="Sahil Trivedi's XMR QR">
+            <img className="galleryImage" src={xmrqr}/>
         </Modal>
     )
 
@@ -131,6 +140,7 @@ const IndexPage = () => {
 
     return(
         <div>
+            {xmrModal}
             {galModal}
           <div className={HomeStyles.coverPicture}></div>
           <div className="pageWrapper">
@@ -151,6 +161,14 @@ const IndexPage = () => {
                   <div>
                       <p className={HomeStyles.sectionHeader}>Interests</p>
                       <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
+                      <p className={HomeStyles.sectionHeader}>About</p>
+                      <div className="wordWrap">
+                      <p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models.</p>
+                      <p className={HomeStyles.about}>I have completed my B.Tech. in Information Technology from VIT University, Vellore.</p>
+                      <p className={HomeStyles.about}>If you have a research idea or project, feel free to ping me via email</p>
+                      <p className={HomeStyles.about}>I accept donations in <span style={{color:"orange"}}>Monero</span></p>
+                      <Button className="btnMonero" onClick={()=>setXmrModal(true)}>View XMR QR</Button>
+                      </div>
                   </div>
               </div>
               <p className={HomeStyles.sectionHeader}>Featured Projects</p>

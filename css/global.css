@@ -33,6 +33,18 @@ body{
     background-color: #2f2f2f;
 }
 
+.btnMonero{
+    background-color: orange;
+    color: white;
+    border: 0px solid white;
+}
+
+.btnMonero:hover, .btnMonero:focus {
+    background-color: orange;
+    color: white;
+    border-color: #40a9ff;
+}
+
 @media screen and (max-width: 600px) {
     .pageHeader{
         text-align: center;
