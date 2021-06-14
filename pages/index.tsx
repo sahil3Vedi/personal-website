@@ -49,7 +49,7 @@ const skills = [
     {title:'ReactJS', src: "https://www.svgrepo.com/show/303157/react-logo.svg", progress: 90},
     {title:'NodeJS', src: "https://www.svgrepo.com/show/303266/nodejs-icon-logo.svg", progress: 90},
     {title:'C++', src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg", progress: 80},
-    {title:'Typescript', src: "https://www.svgrepo.com/show/303600/typescript-logo.svg", progress: 80},
+    {title:'TypeScript', src: "https://www.svgrepo.com/show/303600/typescript-logo.svg", progress: 80},
     {title:'MongoDB', src: "https://static.tumblr.com/lbtm3t2/8PAn0kziu/mongodb-logo.png", progress: 80},
     {title:'SQL', src: "https://www.svgrepo.com/show/138912/database.svg", progress: 80},
     {title:'AWS', src: "https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/1614/2019/07/21743298_1406722539365107_4308832733562613967_n.png", progress: 70},
@@ -159,7 +159,7 @@ const IndexPage = () => {
                       <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
                       <div>
                           <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">Software Engineer (Machine Learning)<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
+                          <p className="pageHeaderDescription">Machine Learning Engineer<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
