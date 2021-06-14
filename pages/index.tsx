@@ -46,10 +46,8 @@ const interests = [
 const skills = [
     {title:'Python', src:"https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg", progress: 90},
     {title:'Tensorflow', src: "https://miro.medium.com/max/2000/1*eJWbxmatlWJCNuhJqXB_dw.png", progress: 90},
-    {title:'ReactJS', src: "https://www.svgrepo.com/show/303157/react-logo.svg", progress: 90},
-    {title:'NodeJS', src: "https://www.svgrepo.com/show/303266/nodejs-icon-logo.svg", progress: 90},
+    {title:'TypeScript', src: "https://www.svgrepo.com/show/303600/typescript-logo.svg", progress: 90},
     {title:'C++', src: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg", progress: 80},
-    {title:'TypeScript', src: "https://www.svgrepo.com/show/303600/typescript-logo.svg", progress: 80},
     {title:'MongoDB', src: "https://static.tumblr.com/lbtm3t2/8PAn0kziu/mongodb-logo.png", progress: 80},
     {title:'SQL', src: "https://www.svgrepo.com/show/138912/database.svg", progress: 80},
     {title:'AWS', src: "https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/1614/2019/07/21743298_1406722539365107_4308832733562613967_n.png", progress: 70},
@@ -163,6 +161,23 @@ const IndexPage = () => {
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
+                  	<div>
+                    	<p className={HomeStyles.sectionHeader}>About</p>
+                    	<div className="wordWrap">
+                      		<p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models. I have done my B.Tech. in Information Technology from VIT University, Vellore.</p>
+                      		<p className={HomeStyles.about}>I accept donations in <span style={{color:"orange", cursor:"pointer"}} onClick={()=>window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
+                      		<Button className="btnMonero" onClick={()=>setXmrModal(true)}>View XMR QR</Button>
+                    	</div>
+                    </div>
+                    <div>
+						<p className={HomeStyles.sectionHeader}>Research</p>
+						<div className="wordWrap">
+					  		<p className={HomeStyles.about}>Currently Researching:<br/>- Dynamic & Scalable Recommendation Engines<br/>- Incremental Optimisation in CNNs<br/>- Fluid Simulations with Neural Networks</p>
+					  		<p className={HomeStyles.about}>If you have any research ideas/projects, or want to collaborate, feel free to send me a mail.</p>
+						</div>
+                    </div>
+                  </div>
+                  <div className={HomeStyles.displayInfo}>
                       <div>
                           <p className={HomeStyles.sectionHeader}>Skills</p>
                           <List size="large" bordered dataSource={skills} renderItem={(item) => (
@@ -172,15 +187,7 @@ const IndexPage = () => {
                       <div>
                           <p className={HomeStyles.sectionHeader}>Interests</p>
                           <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
-                          <p className={HomeStyles.sectionHeader}>About</p>
-                          <div className="wordWrap">
-                          <p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models.</p>
-                          <p className={HomeStyles.about}>I have completed my B.Tech. in Information Technology from VIT University, Vellore.</p>
-                          <p className={HomeStyles.about}>If you have a research idea or project, feel free to ping me via email</p>
-                          <p className={HomeStyles.about}>I accept donations in <span style={{color:"orange"}}>Monero</span></p>
-                          <Button className="btnMonero" onClick={()=>setXmrModal(true)}>View XMR QR</Button>
-                          </div>
-                      </div>
+                        </div>
                   </div>
                   <p className={HomeStyles.sectionHeader}>Featured Projects</p>
                   <List grid={{ gutter: 16, xxl: 3, xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }} dataSource={projects} renderItem={item => (
