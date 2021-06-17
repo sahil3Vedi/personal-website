@@ -17,17 +17,6 @@ const qrgal7 = require('../public/static/Qrips/Scr7.png')
 const qrgal8 = require('../public/static/Qrips/Scr8.png')
 const qrgal9 = require('../public/static/Qrips/Scr9.png')
 const qrgal10 = require('../public/static/Qrips/Scr10.png')
-// IDOC
-const idgal1 = require('../public/static/IDOC/Scr 1.png')
-const idgal2 = require('../public/static/IDOC/Scr 2.png')
-const idgal3 = require('../public/static/IDOC/Scr 3.png')
-const idgal4 = require('../public/static/IDOC/Scr 4.png')
-const idgal5 = require('../public/static/IDOC/Scr 5.png')
-const idgal6 = require('../public/static/IDOC/Scr 6.png')
-const idgal7 = require('../public/static/IDOC/Scr 7.png')
-const idgal8 = require('../public/static/IDOC/Scr 8.png')
-const idgal9 = require('../public/static/IDOC/Scr 9.png')
-const idgal10 = require('../public/static/IDOC/Scr10.png')
 // XMR
 const xmrqr = require('../public/static/xmrqr.png')
 
@@ -107,7 +96,7 @@ const projects = [
         features:["Role based user priviledges", "Document creation, editing, and deletion without leaving the application", "Auto-signin/signout & inactive user signout","Light Mode & Dark Mode"],
         tags:["ReactJS","React Hooks","Redux"],
         github: "",
-        gallery: [idgal1,idgal2,idgal3,idgal4,idgal5,idgal6,idgal7,idgal8,idgal9,idgal10],
+        gallery: [],
     }
 ]
 
