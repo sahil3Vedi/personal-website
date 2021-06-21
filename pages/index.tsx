@@ -4,12 +4,6 @@ import { List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from
 import { GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined } from '@ant-design/icons'
 // IMAGES
 const profileImage = require('../public/static/sahil.jpg')
-// GPMitra
-const gpgal1 = require('../public/static/GPMitra/Scr1.png')
-const gpgal2 = require('../public/static/GPMitra/Scr2.png')
-const gpgal3 = require('../public/static/GPMitra/Scr3.png')
-const gpgal4 = require('../public/static/GPMitra/Scr4.png')
-const gpgal6 = require('../public/static/GPMitra/Scr6.png')
 // Qrips
 const qrgal5 = require('../public/static/Qrips/Scr5.png')
 const qrgal6 = require('../public/static/Qrips/Scr6.png')
@@ -24,11 +18,11 @@ const xmrqr = require('../public/static/xmrqr.png')
 const interests = [
     'Machine Learning',
     'Software Development',
+	'Solving Problems ',
     'DevOps',
     'Mathematics',
-    'Operating Systems',
+    'GNU / Linux',
     'Cybersecurity',
-    'Software Testing',
     'Systems Engineering'
 ]
 
@@ -60,7 +54,7 @@ const projects = [
         features:["Integrated Dashboard for Doctors to oversee patient metrics", "Printing Prescriptions and Invoices", "Inventory Management for In-House Medication"],
         tags: ["NextJS","NodeJS","TypeScript"],
         github: "",
-        gallery: [gpgal1,gpgal2,gpgal3,gpgal4,gpgal6],
+        gallery: [],
     },
     {
         title:"Soccer Prediction",
@@ -138,15 +132,15 @@ const IndexPage = () => {
             </div>
             :
             <div>
-                {xmrModal}
-                {galModal}
+              {xmrModal}
+              {galModal}
               <div className={HomeStyles.coverPicture}></div>
               <div className="pageWrapper">
                   <div className={HomeStyles.profileHeader}>
                       <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
                       <div>
                           <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">Machine Learning Engineer<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
+                          <p className="pageHeaderDescription">Data Scientist<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
@@ -162,7 +156,7 @@ const IndexPage = () => {
 						<p className={HomeStyles.sectionHeader}>Research</p>
 						<div className="wordWrap">
 					  		<p className={HomeStyles.about}>Currently Researching:<br/>- Dynamic & Scalable Recommendation Engines<br/>- Incremental Optimisation in CNNs<br/>- Fluid Simulations with Neural Networks</p>
-					  		<p className={HomeStyles.about}>If you have any research ideas/projects, or want to collaborate, feel free to send me a mail.</p>
+					  		<p className={HomeStyles.about}>I create data driven solutions that improve the human experience. If you have any research ideas/projects, or want to collaborate, feel free to send me a mail.</p>
 						</div>
                     </div>
                   </div>
