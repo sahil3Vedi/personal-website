@@ -22,6 +22,7 @@ const interests = [
     'DevOps',
     'Mathematics',
     'GNU / Linux',
+	'Software Testing',
     'Cybersecurity',
     'Systems Engineering'
 ]
@@ -48,15 +49,15 @@ const projects = [
         gallery: [],
     },
     {
-        title:"Clinic Management ERP System",
-        description:"A Clinic Management System that can be used by General Practioners to manage their patients, reports, issue prescriptions, and assess patient metrics.",
-        learning: "This project introduced me to the challenges of monetizing a SaaS product.",
-        features:["Integrated Dashboard for Doctors to oversee patient metrics", "Printing Prescriptions and Invoices", "Inventory Management for In-House Medication"],
-        tags: ["NextJS","NodeJS","TypeScript"],
-        github: "",
+        title:"Self Driving Car with Arduino",
+        description:"Implementing a Neural Network that pilots a self driving car, trained using data obtained from human pilots",
+        learning: "This was my final year undergrad project. It was interesting interfacing with electronics and implementing a low latency Neural Network in C++",
+        features:["During Training, an SD Card logs the RC commands issued by a human pilot. At the same time, the sensor logs distance data from the surroundings.", "A neural network is trained with Keras that associates the sensor data to the commands", "Once trained, the weights of the model are parsed to C++"],
+        tags: ["C++", "Arduino","Keras"],
+        github: "https://github.com/sahil3Vedi/Self-Driving-Car-Arduino",
         gallery: [],
     },
-    {
+	{
         title:"Soccer Prediction",
         description:"Predicting Soccer Matches with Poisson Distribution. The algorithm accounts for the past matches from Soccer Leagues from 8 European nations and predicts the final scoreline.",
         learning: "This was a fun side project although I did not bet (a lot of) money on the model. Further optimisations are required before it beats the bookmaker.",
@@ -65,7 +66,7 @@ const projects = [
         github: "https://github.com/sahil3Vedi/Soccer-Prediction",
         gallery: [],
     },
-    {
+	{
         title:"Ecommerce Platform & CMS",
         description:"An Ecommerce Platform with separate logins for Suppliers, Admins, and Customers.",
         learning: "This project provided a solid grasp over Node APIs, Server Side Rendering, and React Contexts",
@@ -74,13 +75,13 @@ const projects = [
         github: "",
         gallery: [qrgal5,qrgal6,qrgal7,qrgal8,qrgal9,qrgal10],
     },
-    {
-        title:"Self Driving Car with Arduino",
-        description:"Implementing a Neural Network that pilots a self driving car, trained using data obtained from human pilots",
-        learning: "This was my final year undergrad project. It was interesting interfacing with electronics and implementing a low latency Neural Network in C++",
-        features:["During Training, an SD Card logs the RC commands issued by a human pilot. At the same time, the sensor logs distance data from the surroundings.", "A neural network is trained with Keras that associates the sensor data to the commands", "Once trained, the weights of the model are parsed to C++"],
-        tags: ["C++", "Arduino","Keras"],
-        github: "https://github.com/sahil3Vedi/Self-Driving-Car-Arduino",
+	{
+        title:"Clinic Management ERP System",
+        description:"A Clinic Management System that can be used by General Practioners to manage their patients, reports, issue prescriptions, and assess patient metrics.",
+        learning: "This project introduced me to the challenges of monetizing a SaaS product.",
+        features:["Integrated Dashboard for Doctors to oversee patient metrics", "Printing Prescriptions and Invoices", "Inventory Management for In-House Medication"],
+        tags: ["NextJS","NodeJS","TypeScript"],
+        github: "",
         gallery: [],
     },
     {
@@ -140,7 +141,7 @@ const IndexPage = () => {
                       <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
                       <div>
                           <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">Data Scientist<br/><GithubOutlined style={{color:"#aff1da"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#aff1da"}}/> sahiltrivediw@gmail.com</p>
+                          <p className="pageHeaderDescription">FullStack Data Scientist<br/><GithubOutlined style={{color:"#f57e00"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#f57e00"}}/> sahiltrivediw@gmail.com</p>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
@@ -172,15 +173,15 @@ const IndexPage = () => {
                           <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
                         </div>
                   </div>
-                  <p className={HomeStyles.sectionHeader}>Featured Projects</p>
+                  <p className={HomeStyles.sectionHeader} style={{"marginTop":"65px"}}>Featured Projects</p>
                   <List grid={{ gutter: 16, xxl: 3, xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }} dataSource={projects} renderItem={item => (
                       <List.Item><Card title={item.title}>
                           <p>{item.description}</p>
                           <p>{item.learning}</p>
                           {item.features.map((d,count)=><p key={count}>{`- ${d}`}</p>)}
-                          <div style={{marginBottom:"20px"}}>{item.tags.map((t,count)=><Tag color="cyan" key={count}>{t}</Tag>)}</div>
-                          {item.github ? <Button icon={<GithubOutlined/>} onClick={()=>window.open(item.github, '_blank')}>Source Code</Button> : null}
-                          {item.gallery.length ? <Button icon={<EyeOutlined/>} onClick={()=>viewGallery(item.gallery)}>Gallery</Button> : null}
+                          <div style={{marginBottom:"20px"}}>{item.tags.map((t,count)=><Tag color="#09d79d" key={count}>{t}</Tag>)}</div>
+                          {item.github ? <Button className="btnMonero" icon={<GithubOutlined/>} onClick={()=>window.open(item.github, '_blank')}>Source Code</Button> : null}
+                          {item.gallery.length ? <Button className="btnMonero" icon={<EyeOutlined/>} onClick={()=>viewGallery(item.gallery)}>Gallery</Button> : null}
                       </Card></List.Item>
                   )}/>
               </div>

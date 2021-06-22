@@ -1,14 +1,12 @@
 .ant-list-item-meta-title{
-    color: white;
     font-size: 20px;
 }
 
-.ant-progress-text {
-    color: white;
+.ant-list-bordered{
+	border: 1px solid #ddd;
 }
 
 .ant-list-item{
-    color: white;
     font-size: 20px;
 }
 
@@ -21,13 +19,11 @@
 }
 
 .ant-card{
-    background-color: #2f2f2f;
-    color: white;
     margin-bottom: 20px;
 }
 
 .ant-card-head-title{
-    color: #aff1da;
+    color: #f57e00;
     font-weight: bold;
     width: 100%;
 }
@@ -37,7 +33,7 @@
 }
 
 .ant-list-split .ant-list-item {
-    border-bottom: 1px solid #626262;
+    border-bottom: 1px solid #dadada;
 }
 
 .ant-carousel .slick-dots-bottom {
@@ -69,4 +65,14 @@
 
 .ant-carousel .slick-dots-bottom {
     bottom: -20px;
+}
+
+.ant-list{
+	border-radius: 25px;
+    background-color: whitemsoke;
+}
+
+.ant-card-bordered {
+    border: 1px solid #ddd;
+    border-radius: 10px;
 }
