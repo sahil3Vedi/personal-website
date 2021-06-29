@@ -141,7 +141,7 @@ const IndexPage = () => {
                       <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
                       <div>
                           <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">FullStack Data Scientist<br/><GithubOutlined style={{color:"#f57e00"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#f57e00"}}/> sahiltrivediw@gmail.com</p>
+                          <p className="pageHeaderDescription">Machine Learning Engineer<br/><GithubOutlined style={{color:"#f57e00"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#f57e00"}}/> sahiltrivediw@gmail.com</p>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
