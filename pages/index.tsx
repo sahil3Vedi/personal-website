@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import Head from 'next/head'
+import TagManager from 'react-gtm-module'
 import HomeStyles from '../css/home.module.css'
 import { List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from 'antd'
 import { GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined } from '@ant-design/icons'
@@ -102,7 +104,10 @@ const IndexPage = () => {
     const [xmrmodal, setXmrModal] = useState(false)
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => setLoading(false), [])
+    useEffect(() => {
+		setLoading(false)
+		TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
+	}, [])
 
     const galModal = (
         <Modal centered visible={galleryModal} width="85%" destroyOnClose footer={null} onCancel={()=>setGalleryModal(false)} title="View Gallery">
@@ -123,8 +128,6 @@ const IndexPage = () => {
         setGalleryModal(true)
     }
 
-    console.log(loading)
-
     return(
             loading
             ?
@@ -133,6 +136,10 @@ const IndexPage = () => {
             </div>
             :
             <div>
+				<Head>
+        			<title>Sahil Trivedi's Website</title>
+        			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      			</Head>
               {xmrModal}
               {galModal}
               <div className={HomeStyles.coverPicture}></div>

@@ -1,5 +1,6 @@
 // NEXT
 import { AppProps } from 'next/app'
+import { useEffect } from 'react-gtm-module'
 // CSS
 import 'antd/dist/antd.css'
 import '../css/antoverride.css'
