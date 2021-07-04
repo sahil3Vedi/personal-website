@@ -4,13 +4,22 @@
     margin-top: 40px;
     margin-bottom: 10px;
     text-transform: uppercase;
-    color: #09d79d;
+    color: rgb(1, 58, 163);
 }
 
 .coverPicture{
     height: 50px;
-	background: rgb(0,255,186);
-    background: linear-gradient(166deg, rgba(160,172,218,1) 0%, rgba(0,255,186,1) 100%); 
+    background: linear-gradient(166deg, rgb(1, 58, 163) 0% ,rgb(7,191,167) 100%); 
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.coverPicture p{
+    color: white;
+    line-height: 50px;
+    font-size: 30px;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 .displayInfo{
@@ -28,7 +37,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 30px;
-    margin: 20px 0px 10px 0px;
+    margin: 30px 0px 0px 0px;
 }
 
 .about{

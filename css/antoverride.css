@@ -11,7 +11,7 @@
 }
 
 .ant-progress-success-bg, .ant-progress-bg {
-    background-color: orange;
+    background-color: rgb(7,191,167);
 }
 
 .ant-btn{
@@ -23,7 +23,7 @@
 }
 
 .ant-card-head-title{
-    color: #f57e00;
+    color: rgb(1, 58, 163);
     font-weight: bold;
     width: 100%;
 }
@@ -48,11 +48,11 @@
 }
 
 .ant-modal-close-x {
-    color: #f9ea8f;
+    color: #00ffd5;
 }
 
 .ant-modal-title {
-    color: #f9ea8f;
+    color: #00ffd5;
 }
 
 .ant-modal-body{
@@ -75,4 +75,8 @@
 .ant-card-bordered {
     border: 1px solid #ddd;
     border-radius: 10px;
+}
+
+.ant-drawer-body{
+    padding: 0px;
 }

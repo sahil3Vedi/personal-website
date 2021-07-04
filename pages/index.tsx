@@ -2,17 +2,13 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import TagManager from 'react-gtm-module'
 import HomeStyles from '../css/home.module.css'
-import { List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from 'antd'
-import { GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined } from '@ant-design/icons'
+import { Space, List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from 'antd'
+import { MenuOutlined, GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined } from '@ant-design/icons'
+import Navbar from '../components/navbar'
+
 // IMAGES
 const profileImage = require('../public/static/sahil.jpg')
-// Qrips
-const qrgal5 = require('../public/static/Qrips/Scr5.png')
-const qrgal6 = require('../public/static/Qrips/Scr6.png')
-const qrgal7 = require('../public/static/Qrips/Scr7.png')
-const qrgal8 = require('../public/static/Qrips/Scr8.png')
-const qrgal9 = require('../public/static/Qrips/Scr9.png')
-const qrgal10 = require('../public/static/Qrips/Scr10.png')
+
 // XMR
 const xmrqr = require('../public/static/xmrqr.png')
 
@@ -20,7 +16,7 @@ const xmrqr = require('../public/static/xmrqr.png')
 const interests = [
     'Machine Learning',
     'Software Development',
-	'Solving Problems ',
+	'Problem Solving ',
     'DevOps',
     'Mathematics',
     'GNU / Linux',
@@ -40,67 +36,8 @@ const skills = [
     {title:'Docker', src: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/97_Docker_logo_logos-512.png", progress: 70},
 ]
 
-const projects = [
-    {
-        title:"FaceGAN",
-        description:"An implementation of the NVidia StyleGAN that manipulates the vectors in the input space of a pre-trained Generator to produce images.",
-        learning: "This project was an excellent primer for the world of Generative Networks. I'm excited to work on similar projects",
-        features:["An original image is taken and StyleGAN generates it's closest approximation to that image", "The latent vectors of StyleGAN generated approximations are derived", "Using pre selected vectors the latent space of StyleGAN is manipulated to produce the desired changes"],
-        tags: ["Python", "Tensorflow","StyleGAN"],
-        github: "https://github.com/sahil3Vedi/Face-Generator",
-        gallery: [],
-    },
-    {
-        title:"Self Driving Car with Arduino",
-        description:"Implementing a Neural Network that pilots a self driving car, trained using data obtained from human pilots",
-        learning: "This was my final year undergrad project. It was interesting interfacing with electronics and implementing a low latency Neural Network in C++",
-        features:["During Training, an SD Card logs the RC commands issued by a human pilot. At the same time, the sensor logs distance data from the surroundings.", "A neural network is trained with Keras that associates the sensor data to the commands", "Once trained, the weights of the model are parsed to C++"],
-        tags: ["C++", "Arduino","Keras"],
-        github: "https://github.com/sahil3Vedi/Self-Driving-Car-Arduino",
-        gallery: [],
-    },
-	{
-        title:"Soccer Prediction",
-        description:"Predicting Soccer Matches with Poisson Distribution. The algorithm accounts for the past matches from Soccer Leagues from 8 European nations and predicts the final scoreline.",
-        learning: "This was a fun side project although I did not bet (a lot of) money on the model. Further optimisations are required before it beats the bookmaker.",
-        features:["The past home and away performances are fetched from the CSV", "Attack and Defense Strengths are calculated for the Home and Away teams to get the most likely number of goals by each side", "A Poisson Distribution is applied to generate the probability distribution for the scores"],
-        tags: ["Python", "Scikit","Pandas"],
-        github: "https://github.com/sahil3Vedi/Soccer-Prediction",
-        gallery: [],
-    },
-	{
-        title:"Ecommerce Platform & CMS",
-        description:"An Ecommerce Platform with separate logins for Suppliers, Admins, and Customers.",
-        learning: "This project provided a solid grasp over Node APIs, Server Side Rendering, and React Contexts",
-        features:["Distinct logins for Customers, Suppliers & Admins", "Razorpay Integration for Payments", "CMS for Suppliers and Admins to Track Orders and Update Inventory in Real Time"],
-        tags: ["NextJS","NodeJS","TypeScript"],
-        github: "",
-        gallery: [qrgal5,qrgal6,qrgal7,qrgal8,qrgal9,qrgal10],
-    },
-	{
-        title:"Clinic Management ERP System",
-        description:"A Clinic Management System that can be used by General Practioners to manage their patients, reports, issue prescriptions, and assess patient metrics.",
-        learning: "This project introduced me to the challenges of monetizing a SaaS product.",
-        features:["Integrated Dashboard for Doctors to oversee patient metrics", "Printing Prescriptions and Invoices", "Inventory Management for In-House Medication"],
-        tags: ["NextJS","NodeJS","TypeScript"],
-        github: "",
-        gallery: [],
-    },
-    {
-        title:"Document Management System",
-        description:"A Document Management System commissioned for use by iComply LifeScience Solutions.",
-        learning: "This project served as a great foundation for learning React.",
-        features:["Role based user priviledges", "Document creation, editing, and deletion without leaving the application", "Auto-signin/signout & inactive user signout","Light Mode & Dark Mode"],
-        tags:["ReactJS","React Hooks","Redux"],
-        github: "",
-        gallery: [],
-    }
-]
-
 const IndexPage = () => {
 
-    const [gallery, setGallery] = useState([])
-    const [galleryModal, setGalleryModal] = useState(false)
     const [xmrmodal, setXmrModal] = useState(false)
     const [loading, setLoading] = useState(true)
 
@@ -109,25 +46,25 @@ const IndexPage = () => {
 		TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
 	}, [])
 
-    const galModal = (
-        <Modal centered visible={galleryModal} width="85%" destroyOnClose footer={null} onCancel={()=>setGalleryModal(false)} title="View Gallery">
-            <Carousel effect="fade" autoplay>
-                {gallery.map((d,count)=><div key={count} className="galleryImageDiv"><img className="galleryImage" src={d}/></div>)}
-            </Carousel>
-        </Modal>
-    )
-
     const xmrModal = (
         <Modal centered visible={xmrmodal} width="300px" destroyOnClose footer={null} onCancel={()=>setXmrModal(false)} title="Sahil Trivedi's XMR QR">
             <img className="galleryImage" src={xmrqr}/>
         </Modal>
     )
 
-    const viewGallery = (gal: any) => {
-        setGallery(gal)
-        setGalleryModal(true)
+    const getGreeting = () => {
+        let hours = new Date().getHours()
+        let greeting = "Morning"
+        if (hours < 12) {
+            greeting = "Morning"
+        } else if (hours >= 12 && hours < 16) {
+            greeting = "Afternoon"
+        } else {
+            greeting = "Evening"
+        }
+        return greeting
     }
-
+    
     return(
             loading
             ?
@@ -136,19 +73,20 @@ const IndexPage = () => {
             </div>
             :
             <div>
-				<Head>
+			  <Head>
         			<title>Sahil Trivedi's Website</title>
-        			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      			</Head>
+        		    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      	      </Head>
+              <Navbar/>
               {xmrModal}
-              {galModal}
-              <div className={HomeStyles.coverPicture}></div>
               <div className="pageWrapper">
                   <div className={HomeStyles.profileHeader}>
-                      <div className={HomeStyles.displayPicture}><Avatar size={200} src={profileImage}/></div>
+                      <div className={HomeStyles.displayPicture}><Avatar size={180} src={profileImage}/></div>
                       <div>
                           <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">FullStack Data Engineer<br/><GithubOutlined style={{color:"#f57e00"}}/> github.com/sahil3vedi<br/><MailOutlined style={{color:"#f57e00"}}/> sahiltrivediw@gmail.com</p>
+                          <p className="pageHeaderDescription">FullStack Data Engineer</p>
+                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
+                            <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><MailOutlined/> sahiltrivediw@gmail.com</a>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
@@ -156,7 +94,7 @@ const IndexPage = () => {
                     	<p className={HomeStyles.sectionHeader}>About</p>
                     	<div className="wordWrap">
                       		<p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models. I have done my B.Tech. in Information Technology from VIT University, Vellore.</p>
-                      		<p className={HomeStyles.about}>I accept donations in <span style={{color:"orange", cursor:"pointer"}} onClick={()=>window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
+                                <p className={HomeStyles.about}>I accept donations in <span style={{ color:"rgb(7,191,167)", cursor:"pointer"}} onClick={()=>window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
                       		<Button className="btnMonero" onClick={()=>setXmrModal(true)}>View XMR QR</Button>
                     	</div>
                     </div>
@@ -180,17 +118,6 @@ const IndexPage = () => {
                           <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
                         </div>
                   </div>
-                  <p className={HomeStyles.sectionHeader} style={{"marginTop":"65px"}}>Featured Projects</p>
-                  <List grid={{ gutter: 16, xxl: 3, xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }} dataSource={projects} renderItem={item => (
-                      <List.Item><Card title={item.title}>
-                          <p>{item.description}</p>
-                          <p>{item.learning}</p>
-                          {item.features.map((d,count)=><p key={count}>{`- ${d}`}</p>)}
-                          <div style={{marginBottom:"20px"}}>{item.tags.map((t,count)=><Tag color="#09d79d" key={count}>{t}</Tag>)}</div>
-                          {item.github ? <Button className="btnMonero" icon={<GithubOutlined/>} onClick={()=>window.open(item.github, '_blank')}>Source Code</Button> : null}
-                          {item.gallery.length ? <Button className="btnMonero" icon={<EyeOutlined/>} onClick={()=>viewGallery(item.gallery)}>Gallery</Button> : null}
-                      </Card></List.Item>
-                  )}/>
               </div>
             </div>
     )

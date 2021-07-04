@@ -1,5 +1,5 @@
 .pageWrapper{
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     width: 100%;
     max-width: 1000px;
     margin-left: 50%;
@@ -7,13 +7,22 @@
 }
 
 .pageHeader{
-    font-size: 50px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 0px;
     font-weight: bold;
+}
+
+.pageHeaderAlt{
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: left;
 }
 
 .pageHeaderDescription{
     font-size: 20px;
+    margin-bottom: 0px;
 }
 
 .galleryImage{
@@ -28,14 +37,14 @@
 }
 
 .btnMonero{
-    background-color: orange;
+    background-color: rgb(7,191,167);
     color: white;
     border: 0px solid white;
 	border-radius: 6px;
 }
 
 .btnMonero:hover, .btnMonero:focus {
-    background-color: orange;
+    background-color: rgb(7,191,167);
     color: white;
     border-color: #40a9ff;
 }
@@ -48,10 +57,23 @@
     border-radius: 4px;
 }
 
+.drawer_option{
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px 0px 10px 20px;
+    margin-bottom: 0px;
+}
+
+.drawer_option:hover{
+    background-color: rgb(7,191,167);
+    color: white;
+}
+
 @media screen and (max-width: 600px) {
 
 	.pageWrapper{
-		padding: 20px !important;
+		padding: 0px 20px 20px 20px !important;
 	}
 
     .pageHeader{
