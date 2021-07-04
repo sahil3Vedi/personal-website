@@ -86,7 +86,7 @@ const IndexPage = () => {
                           <h1 className="pageHeader">Sahil Trivedi</h1>
                           <p className="pageHeaderDescription">FullStack Data Engineer</p>
                             <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
-                            <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><MailOutlined/> sahiltrivediw@gmail.com</a>
+                            <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><p><MailOutlined/> sahiltrivediw@gmail.com</p></a>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
