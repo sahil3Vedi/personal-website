@@ -13,8 +13,8 @@ import { LoadingOutlined } from '@ant-design/icons'
 // CSS
 import HomeStyles from '../../css/home.module.css'
 import BlogStyles from '../../css/blog.module.css'
-
-const tex = `f(x) = \\int_{-\\infty}^\\infty\\hat f(\\xi)\\,e^{2 \\pi i \\xi x}\\,d\\xi`
+// PRISM
+import Prism from "prismjs"
 
 const ArticlePage = () => {
 
@@ -26,6 +26,7 @@ const ArticlePage = () => {
 
     useEffect(()=>{
         if (article) setLoading(false)
+        Prism.highlightAll()
     },[article])
 
     const fetchElement = (type: string,content: string) => {
@@ -41,6 +42,13 @@ const ArticlePage = () => {
                 break
             case "latex":
                 return <img src={content} className={BlogStyles.imgEquation} alt="an equation in the article" />
+                break
+            case "code":
+                return <pre className="line-numbers">
+                    <code className="language-py">
+                        {content}
+                    </code>
+                </pre>
                 break
             default:
                 return null

@@ -3,7 +3,7 @@
     "articles":[
         {
             "title": "The Math Inside Neural Networks",
-            "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes it work.",
+            "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",
             "img": "https://i.imgur.com/eNaGuDi.jpeg",
             "link": "the_math_inside_neural_networks",
             "elements": [
@@ -102,6 +102,18 @@
                 {
                     "type": "latex",
                     "content": "https://i.imgur.com/rVh6kLf.png"
+                },
+                {
+                    "type": "text",
+                    "content": "This process of weight multiplication followed by activation is repeated for each layer, till we reach the final layer. If we want to express this in form of pseudocode, we can do it as follows :"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/3aFaYnJ.png"
+                },
+                {
+                    "type": "text",
+                    "content": "The layers include the output layer of the network. This means at the end of the forward pass we have the output of the entire network. The number of elements in the output will be equal to the number of neurons in the output layer. At this point our network has guessed an answer, which is most likley wrong since it is an untrained network. Up next, we will describe how the network quantifies it's error."
                 },
                 {
                     "type": "heading",
