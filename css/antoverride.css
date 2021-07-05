@@ -37,30 +37,25 @@
 }
 
 .ant-carousel .slick-dots-bottom {
-    background-color: #2f2f2f;
     padding: 10px;
     border-radius: 10px;
+    background-color: rgb(42, 170, 170);
 }
 
 .ant-modal-header {
-    background-color: #2f2f2f;
     border-bottom: none;
 }
 
 .ant-modal-close-x {
-    color: #00ffd5;
+    color: rgb(42, 170, 170);
 }
 
 .ant-modal-title {
-    color: #00ffd5;
-}
-
-.ant-modal-body{
-    background-color: #3f3f3f;
+    color: rgb(42, 170, 170);
 }
 
 .ant-carousel .slick-dots li.slick-active button {
-    background: #aff1da;
+    background: rgb(1, 58, 163);
 }
 
 .ant-carousel .slick-dots-bottom {

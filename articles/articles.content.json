@@ -1,0 +1,117 @@
+
+{
+    "articles":[
+        {
+            "title": "The Math Inside Neural Networks",
+            "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes it work.",
+            "img": "https://i.imgur.com/eNaGuDi.jpeg",
+            "link": "the_math_inside_neural_networks",
+            "elements": [
+                {
+                    "type": "text",
+                    "content": "This article is intended for those who have an undergraduate level understanding of linear algebra, and calculus, as well as some introductory knowledge of vanilla neural neworks."
+                },
+                {
+                    "type": "text",
+                    "content": "I've tried my best to keep things simple without turning this into an 'Introduction to Neural Networks' article."
+                },
+                {
+                    "type": "heading",
+                    "content": "I. Introduction"
+                },
+                {
+                    "type": "text",
+                    "content": "There are three primary processes that go on inside a vanilla multilayered neural network in a supervised learning setup:"
+                },
+                {
+                    "type": "text",
+                    "content": "1. Feedforward - The network guesses an answer that is almost always incorrect."
+                },
+                {
+                    "type": "text",
+                    "content": "2. Error Calculation - The network calculates the amount of error between it's answer and the correct answer."
+                },
+                {
+                    "type": "text",
+                    "content": "3. Backpropagation - The network updates it's parameters (or weights) to minimise the error."
+                },
+                {
+                    "type": "text",
+                    "content": "We will analyse the mathematics of all three of these processes in order to reach an understanding of the overall system."
+                },
+                {
+                    "type": "heading",
+                    "content": "II. Feedforward"
+                },
+                {
+                    "type": "text",
+                    "content": "A neural network converts a vector X in an input space Rx to a vector Y in an output space Ry. Since a vector is being transformed from one space to another, we know a matrix is involved. This matrix is actually the weights of that particular layer. Thus, each layer after the input layer represents a vector transformation with a corresponding weight matrix."
+                },
+                {
+                    "type": "text",
+                    "content": "We take closer look by analysing the set of operations inside the first hidden layer. Let's say the input layer has a total 'N' number of neurons and the first hidden layer has a total 'M' number of neurons."
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/HesefMW.jpg"
+                },
+                {
+                    "type": "text",
+                    "content": "Mathematically, this is just standard matrix multiplication:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/47NgnUz.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We now have a system that converts vectors from one vector space to another. If this was the only operation in each layer, the entire neural network could be represented as a single weight matrix by post-multiplying the weight matrices of each layer. Of course, that is not what happens!"
+                },
+                {
+                    "type": "text",
+                    "content": "The reason we have multiple layers in the network is because each layer has an activation function. An activation function squishes the outputs of a layer into a certain range. Because there are no restrictions on how large the values inside X or W can be, after a few multiplications the magnitude of values inside H can increase to the point where computers run out of space to store those values. Besides, we dont need very large values for tasks like classification or probabilistic prediction."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/8bzOMFJ.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We thus obtain the final activation values of the first layer after passing H through an activation function. Generally, we want the following characteristics in an activation function:"
+                },
+                {
+                    "type": "text",
+                    "content": "(i) It should be monotonic increasing (in other words, an increase in h should result in an increase in a)."
+                },
+                {
+                    "type": "text",
+                    "content": "(ii) It should be bounded to a certain interval. This could either be a lower bound, upper bound, or both."
+                },
+                {
+                    "type": "text",
+                    "content": "(iii) It should be differentiable. We will discuss why this is important during backpropagation."
+                },
+                {
+                    "type": "text",
+                    "content": "Two functions that fit this requirement are the sigmoid function and the tanh function. Of course, there are more activation functions for other use cases but let's consider these two for now. The graph below shows us how these functions constrain the input. The sigmoid function is in blue and the tanh function is in green."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/BWKz3oU.png"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/rVh6kLf.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "III. Error Calculation"
+                },
+                {
+                    "type": "heading",
+                    "content": "IV. Backpropagation"
+                }
+            ]
+        }
+    ]
+}

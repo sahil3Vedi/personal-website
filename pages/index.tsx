@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import TagManager from 'react-gtm-module'
 import HomeStyles from '../css/home.module.css'
 import { Space, List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from 'antd'
@@ -51,19 +52,6 @@ const IndexPage = () => {
             <img className="galleryImage" src={xmrqr}/>
         </Modal>
     )
-
-    const getGreeting = () => {
-        let hours = new Date().getHours()
-        let greeting = "Morning"
-        if (hours < 12) {
-            greeting = "Morning"
-        } else if (hours >= 12 && hours < 16) {
-            greeting = "Afternoon"
-        } else {
-            greeting = "Evening"
-        }
-        return greeting
-    }
     
     return(
             loading
@@ -84,9 +72,9 @@ const IndexPage = () => {
                       <div className={HomeStyles.displayPicture}><Avatar size={180} src={profileImage}/></div>
                       <div>
                           <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">FullStack Data Engineer</p>
-                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
-                            <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><p><MailOutlined/> sahiltrivediw@gmail.com</p></a>
+                          <p className="pageHeaderDescription">Software Engineer</p>
+                          <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
+                          <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><p><MailOutlined/> sahiltrivediw@gmail.com</p></a>
                       </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
@@ -94,15 +82,16 @@ const IndexPage = () => {
                     	<p className={HomeStyles.sectionHeader}>About</p>
                     	<div className="wordWrap">
                       		<p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models. I have done my B.Tech. in Information Technology from VIT University, Vellore.</p>
-                                <p className={HomeStyles.about}>I accept donations in <span style={{ color:"rgb(7,191,167)", cursor:"pointer"}} onClick={()=>window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
-                      		<Button className="btnMonero" onClick={()=>setXmrModal(true)}>View XMR QR</Button>
+                            <p className={HomeStyles.about}>I write about Machine Learning, Web Development, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
+                            <Link href="/blog"><Button className="btnMonero">View Blog</Button></Link>
                     	</div>
                     </div>
                     <div>
 						<p className={HomeStyles.sectionHeader}>Research</p>
 						<div className="wordWrap">
 					  		<p className={HomeStyles.about}>Currently Researching:<br/>- Dynamic & Scalable Recommendation Engines<br/>- Incremental Optimisation in CNNs<br/>- Fluid Simulations with Neural Networks</p>
-					  		<p className={HomeStyles.about}>I create data driven solutions that improve the human experience. If you have any research ideas/projects, or want to collaborate, feel free to send me a mail.</p>
+                            <p className={HomeStyles.about}>Want to fund my work? I accept donations in <span style={{ color: "rgb(7,191,167)", cursor: "pointer" }} onClick={() => window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
+                            <Button className="btnMonero" onClick={() => setXmrModal(true)}>View XMR QR</Button>
 						</div>
                     </div>
                   </div>
