@@ -120,6 +120,42 @@
                     "content": "III. Error Calculation"
                 },
                 {
+                    "type": "text",
+                    "content": "In supervised learning we have labelled outputs for our inputs during training. We call these labels 'targets'. To calculate the error in the network's output Y we need to compare it to the corresponding target T. But how exactly do we determine the error. Do we simply subtract Y from T?"
+                },
+                {
+                    "type": "text",
+                    "content": "Whatever the error is, we ideally want to minimise it. Error is also referred to as the 'Loss' of the network. Whatever this loss function is, it should be as low as possible for maximum accuracy of the network. Let us plot the target T and the output Y on a graph."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/lBw87fp.png"
+                },
+                {
+                    "type": "text",
+                    "content": "The red line on the graph denotes y = t, which is the optimal condition. The blue point denotes any point (y0,t0) for any input x0. What we really want is to minimise the distance between the line (y = t) and the point (y0,t0). This gives us a good starting point for defining the loss function."
+                },
+                {
+                    "type": "text",
+                    "content": "The distance between any point (y0,t0) and the line (y=t) can be described using the formula: "
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/9o2J26w.png"
+                },
+                {
+                    "type": "text",
+                    "content": "To minimise d, we minimise |y0 - t0|. Assuming there are K elements in the output layer, we define the loss function E as:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://imgur.com/xvxPnxT.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Now that we have described E mathematically. That's nice, but we took all this trouble to answer the question - How much should the weights of the network be adjusted in a way that reduces E? Introducting Backpropagation."
+                },
+                {
                     "type": "heading",
                     "content": "IV. Backpropagation"
                 }
