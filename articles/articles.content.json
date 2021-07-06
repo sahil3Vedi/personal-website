@@ -162,7 +162,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Backpropagation is popular approach to solve this problem. Starting from the output layer, the error propagates backwards until the weights of all layers have been updated. Let us first look at how we update the weights in the output layer."
+                    "content": "Backpropagation is a popular approach to solve this problem. Starting from the output layer, the error propagates backwards until the weights of all layers have been updated. Let us first look at how we update the weights in the output layer."
                 },
                 {
                     "type": "text",

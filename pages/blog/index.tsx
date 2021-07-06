@@ -16,7 +16,7 @@ const BlogPage = () => {
     return(
         <div>
             <Head>
-                <title>Sahil Trivedi's Blog</title>
+                <title>Blog - Sahil Trivedi</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <Navbar />

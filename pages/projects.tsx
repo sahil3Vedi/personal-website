@@ -64,7 +64,7 @@ const projects = [
         title: "Document Management System",
         description: "A Document Management System commissioned for use by iComply LifeScience Solutions.",
         learning: "This project served as a great foundation for learning React.",
-        features: ["Role based user priviledges", "Document creation, editing, and deletion without leaving the application", "Auto-signin/signout & inactive user signout", "Light Mode & Dark Mode"],
+        features: ["Role based user privileges", "Document creation, editing, and deletion without leaving the application", "Auto-signin/signout & inactive user signout", "Light Mode & Dark Mode"],
         tags: ["ReactJS", "React Hooks", "Redux"],
         github: "",
         gallery: [],

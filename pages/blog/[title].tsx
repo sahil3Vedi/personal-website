@@ -72,6 +72,7 @@ const ArticlePage = () => {
                         <title>{article.title}</title>
                         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     </Head>
+                    <img src={article.img} className={BlogStyles.imgPreview} alt="related to article" />
                     <p className={BlogStyles.pageHeader}>{article.title}</p>
                     <p className={BlogStyles.text} style={{color: "gray"}}>By Sahil Trivedi<br/>{article.date}</p>
                     <p className={BlogStyles.text}>{article.description}</p>
