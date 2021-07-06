@@ -26,14 +26,14 @@ const ArticlePage = () => {
     const location = router.query.title
     const article = articles["articles"].find(a => a.link === location)
 
-    useEffect(()=>{
+    useEffect(() => {
         if (article) setLoading(false)
         Prism.highlightAll()
         TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
-    },[article])
+    }, [article])
 
-    const fetchElement = (type: string,content: string) => {
-        switch (type){
+    const fetchElement = (type: string, content: string) => {
+        switch (type) {
             case "heading":
                 return <h2 className={BlogStyles.sectionHeader}>{content}</h2>
                 break
@@ -41,7 +41,7 @@ const ArticlePage = () => {
                 return <p className={BlogStyles.text}>{content}</p>
                 break
             case "image":
-                return <img src={content} className={BlogStyles.imgPreview} alt="related to article"/>
+                return <img src={content} className={BlogStyles.imgPreview} alt="related to article" />
                 break
             case "latex":
                 return <img src={content} className={BlogStyles.imgEquation} alt="an equation in the article" />
@@ -60,28 +60,33 @@ const ArticlePage = () => {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             {
                 loading ?
-                <div className="spinner">
-                    <Spin indicator={<LoadingOutlined style={{ fontSize: 50, color: "#aff1da" }} spin />} />
-                </div>
-                :
-                <div className="pageWrapper">
-                    <Head>
-                        <title>{article.title}</title>
-                        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    </Head>
-                    <img src={article.img} className={BlogStyles.imgPreview} alt="related to article" />
-                    <p className={BlogStyles.pageHeader}>{article.title}</p>
-                    <p className={BlogStyles.text} style={{color: "gray"}}>By Sahil Trivedi<br/>{article.date}</p>
-                    <p className={BlogStyles.text}>{article.description}</p>
-                    {
-                        article.elements.map((e,count)=><div key={count}>{fetchElement(e.type,e.content)}</div>)
-                    }
-                </div>
+                    <div className="spinner">
+                        <Spin indicator={<LoadingOutlined style={{ fontSize: 50, color: "#aff1da" }} spin />} />
+                    </div>
+                    :
+                    <div className="pageWrapper">
+                        <Head>
+                            <title>{article.title}</title>
+                            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                            <meta property="og:title" content={article.title} />
+                            <meta property="og:description" content={article.description} />
+                            <meta property="og:type" content="website" />
+                            <meta property="og:image" content={article.img} />;
+                            <meta property="og:image:type" content="image/jpeg" />
+                        </Head>
+                        <img src={article.img} className={BlogStyles.imgPreview} alt="related to article" />
+                        <p className={BlogStyles.pageHeader}>{article.title}</p>
+                        <p className={BlogStyles.text} style={{ color: "gray" }}>By Sahil Trivedi<br />{article.date}</p>
+                        <p className={BlogStyles.text}>{article.description}</p>
+                        {
+                            article.elements.map((e, count) => <div key={count}>{fetchElement(e.type, e.content)}</div>)
+                        }
+                    </div>
             }
-            
+
         </div>
     )
 }
