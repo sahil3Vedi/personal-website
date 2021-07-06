@@ -179,7 +179,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Next we calculate the gradient of E with respect to Wyz. But wait, E is a vector, E-total is the summation of it's elements, and Wyz is a matrix. To resolve this confusion, we represent dE/dWyz as a vector with the help of the chain rule:"
+                    "content": "Next we calculate the gradient of E with respect to Wyz using the chain rule:"
                 },
                 {
                     "type":"latex",
