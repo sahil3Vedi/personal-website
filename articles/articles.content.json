@@ -2,7 +2,7 @@
 {
     "articles":[
         {
-            "title": "The Math Inside Neural Networks",
+            "title": "The Math inside Neural Networks",
             "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",
             "img": "https://victorzhou.com/media/nn-series/network.svg",
             "link": "the_math_inside_neural_networks",
