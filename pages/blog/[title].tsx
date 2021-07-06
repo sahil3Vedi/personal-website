@@ -74,8 +74,8 @@ const ArticlePage = () => {
                             <meta property="og:title" content={article.title} />
                             <meta property="og:description" content={article.description} />
                             <meta property="og:type" content="website" />
+                            <meta property="og:width" content="200"/>
                             <meta property="og:image" content={article.img} />;
-                            <meta property="og:image:type" content="image/jpeg" />
                         </Head>
                         <img src={article.img} className={BlogStyles.imgPreview} alt="related to article" />
                         <p className={BlogStyles.pageHeader}>{article.title}</p>
