@@ -4,16 +4,13 @@
         {
             "title": "The Math Inside Neural Networks",
             "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",
-            "img": "https://i.imgur.com/eNaGuDi.jpeg",
+            "img": "https://victorzhou.com/media/nn-series/network.svg",
             "link": "the_math_inside_neural_networks",
+            "date": "06 July 2021",
             "elements": [
                 {
                     "type": "text",
-                    "content": "This article is intended for those who have an undergraduate level understanding of linear algebra, and calculus, as well as some introductory knowledge of vanilla neural neworks."
-                },
-                {
-                    "type": "text",
-                    "content": "I've tried my best to keep things simple without turning this into an 'Introduction to Neural Networks' article."
+                    "content": "This article is intended for those who have an undergraduate level understanding of linear algebra, and calculus, as well as some introductory knowledge of vanilla neural neworks. I've tried my best to keep things simple without turning this into an 'Introduction to Neural Networks' article."
                 },
                 {
                     "type": "heading",
@@ -245,7 +242,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "We saw how a given weight Wij in the output layer can be updated. But to understand backpropagation for hidden layers we need to understand the matrices at play. In order to match the dimensionality of the vectors, we take the transpose on the RHS and rewrite the matrix equation as follows:"
+                    "content": "We saw how a given weight Wij in the output layer can be updated. But to understand backpropagation for hidden layers we need to understand the matrices at play. In order to satisfy the dimensionality of the vectors, we take the transpose on the RHS and rewrite the matrix equation as follows:"
                 },
                 {
                     "type": "latex",
@@ -266,6 +263,22 @@
                 {
                     "type": "latex",
                     "content": "https://i.imgur.com/rp11Btv.png"
+                },
+                {
+                    "type": "text",
+                    "content": "The above process is repeated for the previous layers until we finally update the weights of the first hidden layer. Backpropagation can be summarised by pseudocode as follows:"
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/dDrO2DY.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "V. Conclusion"
+                },
+                {
+                    "type": "text",
+                    "content": "We discussed how neural networks are carefully coordinated matrix operations. If you found this article useful and want to study the concepts behind Neural Networks in detail, you may read 'Neural Networks - A Systemic Introduction' by Raul Rojas."
                 }
             ]
         }

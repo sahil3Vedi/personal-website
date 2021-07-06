@@ -5,8 +5,14 @@ import { Card, List, Button } from 'antd'
 import BlogStyles from '../../css/blog.module.css'
 import articles from '../../articles/articles.content.json'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 const BlogPage = () => {
+
+    useEffect(() => {
+        TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
+    }, [])
+
     return(
         <div>
             <Head>

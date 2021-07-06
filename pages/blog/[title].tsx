@@ -15,6 +15,8 @@ import HomeStyles from '../../css/home.module.css'
 import BlogStyles from '../../css/blog.module.css'
 // PRISM
 import Prism from "prismjs"
+// TAG MANAGER
+import TagManager from 'react-gtm-module'
 
 const ArticlePage = () => {
 
@@ -27,6 +29,7 @@ const ArticlePage = () => {
     useEffect(()=>{
         if (article) setLoading(false)
         Prism.highlightAll()
+        TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
     },[article])
 
     const fetchElement = (type: string,content: string) => {
@@ -67,8 +70,10 @@ const ArticlePage = () => {
                 <div className="pageWrapper">
                     <Head>
                         <title>{article.title}</title>
+                        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     </Head>
                     <p className={BlogStyles.pageHeader}>{article.title}</p>
+                    <p className={BlogStyles.text} style={{color: "gray"}}>By Sahil Trivedi<br/>{article.date}</p>
                     <p className={BlogStyles.text}>{article.description}</p>
                     {
                         article.elements.map((e,count)=><div key={count}>{fetchElement(e.type,e.content)}</div>)
