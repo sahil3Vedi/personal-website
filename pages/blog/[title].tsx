@@ -9,7 +9,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 // ANT
 import { Spin } from 'antd'
-import { LoadingOutlined } from '@ant-design/icons'
+import { LoadingOutlined, ClockCircleOutlined } from '@ant-design/icons'
 // CSS
 import HomeStyles from '../../css/home.module.css'
 import BlogStyles from '../../css/blog.module.css'
@@ -79,7 +79,7 @@ const ArticlePage = () => {
                         </Head>
                         <img src={article.img} className={BlogStyles.imgPreview} alt="related to article" />
                         <p className={BlogStyles.pageHeader}>{article.title}</p>
-                        <p className={BlogStyles.text} style={{ color: "gray" }}>By Sahil Trivedi<br />{article.date}</p>
+                        <p className={BlogStyles.text} style={{ color: "gray" }}>By Sahil Trivedi<br />{article.date}<br /><ClockCircleOutlined /> {article.time}</p>
                         <p className={BlogStyles.text}>{article.description}</p>
                         {
                             article.elements.map((e, count) => <div key={count}>{fetchElement(e.type, e.content)}</div>)
