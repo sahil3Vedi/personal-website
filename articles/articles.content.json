@@ -49,7 +49,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "We take closer look by analysing the set of operations inside the first hidden layer. Let's say the input layer has a total 'N' number of neurons and the first hidden layer has a total 'M' number of neurons."
+                    "content": "We take a closer look by analysing the set of operations inside the first hidden layer. Let's say the input layer has a total 'N' number of neurons and the first hidden layer has a total 'M' number of neurons."
                 },
                 {
                     "type": "image",
@@ -61,7 +61,7 @@
                 },
                 {
                     "type": "latex",
-                    "content": "https://i.imgur.com/47NgnUz.png"
+                    "content": "https://i.imgur.com/gLxc3F2.png"
                 },
                 {
                     "type": "text",
@@ -108,7 +108,7 @@
                     "content": "This process of weight multiplication followed by activation is repeated for each layer, till we reach the final layer. If we want to express this in form of pseudocode, we can do it as follows :"
                 },
                 {
-                    "type": "latex",
+                    "type": "image",
                     "content": "https://i.imgur.com/3aFaYnJ.png"
                 },
                 {
@@ -141,7 +141,7 @@
                 },
                 {
                     "type": "latex",
-                    "content": "https://i.imgur.com/9o2J26w.png"
+                    "content": "https://i.imgur.com/rdB6LnB.png"
                 },
                 {
                     "type": "text",
@@ -153,11 +153,119 @@
                 },
                 {
                     "type": "text",
-                    "content": "Now that we have described E mathematically. That's nice, but we took all this trouble to answer the question - How much should the weights of the network be adjusted in a way that reduces E? Introducting Backpropagation."
+                    "content": "We have described E mathematically. That's nice, but we took all this trouble to answer the question - How much should the weights of the network be adjusted in a way that reduces E? Introducing Backpropagation."
                 },
                 {
                     "type": "heading",
                     "content": "IV. Backpropagation"
+                },
+                {
+                    "type": "text",
+                    "content": "Before we adjust the weights of the entire network, we need to determine the error for each layer. The loss function E denotes the error for the network, that's true. But more specifically, it is the error of the output layer."
+                },
+                {
+                    "type": "text",
+                    "content": "Backpropagation is popular approach to solve this problem. Starting from the output layer, the error propagates backwards until the weights of all layers have been updated. Let us first look at how we update the weights in the output layer."
+                },
+                {
+                    "type": "text",
+                    "content": "To do that we first express E as a function of the weights of the output layer. If Wyz denotes the weight matrix of the output layer, and A denotes the activations of the second last layer:"
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/JBV4Qh6.jpg"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/MA3cPuy.png" 
+                },
+                {
+                    "type": "text",
+                    "content": "Next we calculate the gradient of E with respect to Wyz. But wait, E is a vector, E-total is the summation of it's elements, and Wyz is a matrix. To resolve this confusion, we represent dE/dWyz as a vector with the help of the chain rule:"
+                },
+                {
+                    "type":"latex",
+                    "content": "https://i.imgur.com/F2All1f.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can resolve these three terms individually very easily. Let's start with dE/dY: "
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/ONgRnBR.png"
+                },
+                {
+                    "type": "text",
+                    "content": "To calculate dY/dZ, recall that Y=f(Z) where f is the activation function. This is why we insist on having a differentiable activation function."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/DYhpTyI.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We have a trick to quickly compute the derivates. The derivatives of the sigmoid and tanh functions can be represented as follows:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://imgur.com/KBcafpB.png"
+                },
+                {
+                    "type": "text",
+                    "content": "dZ/dWyz is actually just Ay"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/P7zWOlf.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can rewrite the dE/dWyz as:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/6YoMFSV.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can also determine the gradient for each connection Wij in the matrix Wyz. Also note that we can safely ignore the '2' in the equation because we are not concerned with the coefficients."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/cUTrxzC.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Thus the new value of any connection Wij in the matrix Wyz is written as follow. The symbol gamma (r) represents the learning rate and accounts of all coefficients. This is also why we discarded the '2' previously."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://imgur.com/8fLVZmb.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We saw how a given weight Wij in the output layer can be updated. But to understand backpropagation for hidden layers we need to understand the matrices at play. In order to match the dimensionality of the vectors, we take the transpose on the RHS and rewrite the matrix equation as follows:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/YDoLdoD.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Here Dz is a ZxZ diagonal matrix containing the derivatives of the output activations."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/ss2H2sC.png"
+                },
+                {
+                    "type": "text",
+                    "content": "This is how computers calculate gradients. We finally calculate the gradients for the hidden layer with the weight matrix Wxy."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/rp11Btv.png"
                 }
             ]
         }
