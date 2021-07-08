@@ -4,7 +4,7 @@ import Link from 'next/link'
 import TagManager from 'react-gtm-module'
 import HomeStyles from '../css/home.module.css'
 import { Space, List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from 'antd'
-import { MenuOutlined, GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined } from '@ant-design/icons'
+import { MenuOutlined, GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined, LinkedinOutlined } from '@ant-design/icons'
 import Navbar from '../components/navbar'
 
 // IMAGES
@@ -74,6 +74,7 @@ const IndexPage = () => {
                           <h1 className="pageHeader">Sahil Trivedi</h1>
                           <p className="pageHeaderDescription">Software Engineer</p>
                           <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
+                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.linkedin.com/in/trivedi-sahil/', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><LinkedinOutlined style={{ color: "rgb(7,191,167)" }} /> linkedin.com/in/trivedi-sahil</p>
                           <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><p><MailOutlined/> sahiltrivediw@gmail.com</p></a>
                       </div>
                   </div>
@@ -82,7 +83,7 @@ const IndexPage = () => {
                     	<p className={HomeStyles.sectionHeader}>About</p>
                     	<div className="wordWrap">
                       		<p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models. I have done my B.Tech. in Information Technology from VIT University, Vellore.</p>
-                            <p className={HomeStyles.about}>I write about Machine Learning, Web Development, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
+                            <p className={HomeStyles.about}>I write about Machine Learning, Software Engineering, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
                             <Link href="/blog"><Button className="btnMonero">View Blog</Button></Link>
                     	</div>
                     </div>
