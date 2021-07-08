@@ -6,6 +6,8 @@ import HomeStyles from '../css/home.module.css'
 import { Space, List, Avatar, Progress, Card, Button, Tag, Modal, Carousel, Spin } from 'antd'
 import { MenuOutlined, GithubOutlined, MailOutlined, EyeOutlined, LoadingOutlined, LinkedinOutlined } from '@ant-design/icons'
 import Navbar from '../components/navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin, faDocker } from '@fortawesome/free-brands-svg-icons'
 
 // IMAGES
 const profileImage = require('../public/static/sahil.jpg')
@@ -21,6 +23,7 @@ const interests = [
     'DevOps',
     'Mathematics',
     'GNU / Linux',
+    'Blockchain',
 	'Software Testing',
     'Cybersecurity',
     'Systems Engineering'
@@ -69,14 +72,13 @@ const IndexPage = () => {
               {xmrModal}
               <div className="pageWrapper">
                   <div className={HomeStyles.profileHeader}>
-                      <div className={HomeStyles.displayPicture}><Avatar size={180} src={profileImage}/></div>
-                      <div>
-                          <h1 className="pageHeader">Sahil Trivedi</h1>
-                          <p className="pageHeaderDescription">Software Engineer</p>
-                          <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
-                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.linkedin.com/in/trivedi-sahil/', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><LinkedinOutlined style={{ color: "rgb(7,191,167)" }} /> linkedin.com/in/trivedi-sahil</p>
-                          <a href="mailto:sahiltrivediw@gmail.com" target="_blank" className="pageHeaderDescription" style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><p><MailOutlined/> sahiltrivediw@gmail.com</p></a>
-                      </div>
+                        <div className={HomeStyles.displayPicture}><Avatar size={180} src={profileImage}/></div>
+                        <div>
+                            <h1 className="pageHeader">Sahil Trivedi</h1>
+                            <p className="pageHeaderDescription">Software Engineer</p>
+                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
+                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.linkedin.com/in/trivedi-sahil/', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><FontAwesomeIcon icon={faLinkedin} /> linkedin.com/in/trivedi-sahil</p>
+                        </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
                   	<div>

@@ -3,7 +3,9 @@
 }
 
 .ant-list-bordered{
-	border: 1px solid #ddd;
+	border: 0px solid #ddd;
+    box-shadow: 2px 2px 10px #d0d0d0aa;
+    padding: 10px 2px;
 }
 
 .ant-list-item{
@@ -20,20 +22,30 @@
 
 .ant-card{
     margin-bottom: 20px;
+    box-shadow: 2px 2px 8px #d0d0d0aa;
+    border: 0px solid white !important;
 }
 
 .ant-card-head-title{
     color: rgb(1, 58, 163);
     font-weight: bold;
     width: 100%;
+    padding: 10px 25px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.ant-card:hover .ant-card-head-title{
+    color: white;
+    background: linear-gradient(166deg, rgb(1, 58, 163) 0% ,rgb(7,191,167) 100%);
 }
 
 .ant-card-head{
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #dddddd66;
+    padding: 0px;
 }
 
 .ant-list-split .ant-list-item {
-    border-bottom: 1px solid #dadada;
+    border-bottom: 0px solid #dadada;
 }
 
 .ant-carousel .slick-dots-bottom {
