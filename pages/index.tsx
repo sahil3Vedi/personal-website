@@ -84,7 +84,7 @@ const IndexPage = () => {
                   	<div>
                     	<p className={HomeStyles.sectionHeader}>About</p>
                     	<div className="wordWrap">
-                      		<p className={HomeStyles.about}>My domain of work is  MLOps - creating dynamic & scalable Machine Learning models. I have done my B.Tech. in Information Technology from VIT University, Vellore.</p>
+                      		<p className={HomeStyles.about}>I work as a Fullstack Engineer and use node, react, and numpy almost everyday.</p>
                             <p className={HomeStyles.about}>I write about Machine Learning, Software Engineering, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
                             <Link href="/blog"><Button className="btnMonero">View Blog</Button></Link>
                     	</div>
