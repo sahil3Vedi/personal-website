@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import TagManager from 'react-gtm-module'
 import Navbar from '../components/navbar'
+import { useDarkModeContext } from '../context/darkMode'
 
 // Qrips
 const qrgal5 = require('../public/static/Qrips/Scr5.png')
@@ -75,6 +76,7 @@ const ProjectsPage = () => {
     
     const [gallery, setGallery] = useState([])
     const [galleryModal, setGalleryModal] = useState(false)
+    const { darkMode }: any = useDarkModeContext()
 
     useEffect(() => {
         TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
@@ -96,7 +98,7 @@ const ProjectsPage = () => {
 
 
     return (
-        <div>
+        <div className={darkMode ? "dark" : null}>
             <Head>
                 <title>Sahil Trivedi's Projects</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />

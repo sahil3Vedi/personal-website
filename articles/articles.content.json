@@ -1,7 +1,7 @@
 
 {
     "articles":[
-        {
+		{
             "title": "The Math inside Neural Networks",
             "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",
             "img": "https://victorzhou.com/media/nn-series/network.svg",
@@ -11,7 +11,7 @@
             "elements": [
                 {
                     "type": "text",
-                    "content": "This article is intended for those who have an undergraduate level understanding of linear algebra, and calculus, as well as some introductory knowledge of vanilla neural neworks. I've tried my best to keep things simple without turning this into an 'Introduction to Neural Networks' article."
+                    "content": "This article is intended for those who have an undergraduate level understanding of linear algebra, calculus, as well as some introductory knowledge of vanilla neural neworks. I've tried my best to keep things simple without turning this into an 'Introduction to Neural Networks' article."
                 },
                 {
                     "type": "heading",
@@ -175,7 +175,7 @@
                 },
                 {
                     "type": "latex",
-                    "content": "https://i.imgur.com/MA3cPuy.png" 
+                    "content": "https://i.imgur.com/MA3cPuy.png"
                 },
                 {
                     "type": "text",

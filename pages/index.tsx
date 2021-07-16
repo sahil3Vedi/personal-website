@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useDarkModeContext } from '../context/darkMode'
 import Head from 'next/head'
 import Link from 'next/link'
 import TagManager from 'react-gtm-module'
@@ -26,7 +27,8 @@ const interests = [
     'Blockchain',
 	'Software Testing',
     'Cybersecurity',
-    'Systems Engineering'
+    'Systems Engineering',
+    'Music'
 ]
 
 const skills = [
@@ -42,6 +44,8 @@ const skills = [
 
 const IndexPage = () => {
 
+    const { darkMode }: any = useDarkModeContext()
+
     const [xmrmodal, setXmrModal] = useState(false)
     const [loading, setLoading] = useState(true)
 
@@ -55,7 +59,7 @@ const IndexPage = () => {
             <img className="galleryImage" src={xmrqr}/>
         </Modal>
     )
-    
+
     return(
             loading
             ?
@@ -63,14 +67,14 @@ const IndexPage = () => {
                 <Spin indicator={<LoadingOutlined style={{ fontSize: 50, color:"#aff1da" }} spin />}/>
             </div>
             :
-            <div>
+            <div className={darkMode ? "dark" : "null"}>
 			  <Head>
         			<title>Sahil Trivedi</title>
         		    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       	      </Head>
               <Navbar/>
               {xmrModal}
-              <div className="pageWrapper">
+                <div className={darkMode ? "dark pageWrapper" : "pageWrapper"}>
                   <div className={HomeStyles.profileHeader}>
                         <div className={HomeStyles.displayPicture}><Avatar size={180} src={profileImage}/></div>
                         <div>
@@ -82,15 +86,15 @@ const IndexPage = () => {
                   </div>
                   <div className={HomeStyles.displayInfo}>
                   	<div>
-                    	<p className={HomeStyles.sectionHeader}>About</p>
+                    	<p className="sectionHeader">About</p>
                     	<div className="wordWrap">
-                      		<p className={HomeStyles.about}>I work as a Fullstack Engineer and use node, react, and numpy almost everyday.</p>
+                      		<p className={HomeStyles.about}>Full Stack Engineer with 2 years of experience building data driven software, from prototype to production. A fast learner with a penchant for applying his skills across multiple domains.</p>
                             <p className={HomeStyles.about}>I write about Machine Learning, Software Engineering, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
                             <Link href="/blog"><Button className="btnMonero">View Blog</Button></Link>
                     	</div>
                     </div>
                     <div>
-						<p className={HomeStyles.sectionHeader}>Research</p>
+                        <p className="sectionHeader">Research</p>
 						<div className="wordWrap">
 					  		<p className={HomeStyles.about}>Currently Researching:<br/>- Dynamic & Scalable Recommendation Engines<br/>- Incremental Optimisation in CNNs<br/>- Fluid Simulations with Neural Networks</p>
                             <p className={HomeStyles.about}>Want to fund my work? I accept donations in <span style={{ color: "rgb(7,191,167)", cursor: "pointer" }} onClick={() => window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
@@ -100,13 +104,13 @@ const IndexPage = () => {
                   </div>
                   <div className={HomeStyles.displayInfo}>
                       <div>
-                          <p className={HomeStyles.sectionHeader}>Skills</p>
+                          <p className="sectionHeader">Skills</p>
                           <List size="large" bordered dataSource={skills} renderItem={(item) => (
                               <List.Item><List.Item.Meta avatar={<Avatar shape="square" src={item.src} />} title={item.title} description={<Progress percent={item.progress}/>}/></List.Item>
                           )}/>
                       </div>
                       <div>
-                          <p className={HomeStyles.sectionHeader}>Interests</p>
+                          <p className="sectionHeader">Interests</p>
                           <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
                         </div>
                   </div>

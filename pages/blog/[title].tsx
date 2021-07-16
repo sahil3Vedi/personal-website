@@ -17,9 +17,12 @@ import BlogStyles from '../../css/blog.module.css'
 import Prism from "prismjs"
 // TAG MANAGER
 import TagManager from 'react-gtm-module'
+// CONTEXT
+import { useDarkModeContext } from '../../context/darkMode'
 
 const ArticlePage = () => {
 
+    const { darkMode }: any = useDarkModeContext()
     const [loading, setLoading] = useState(true)
     const router = useRouter()
 
@@ -35,10 +38,13 @@ const ArticlePage = () => {
     const fetchElement = (type: string, content: string) => {
         switch (type) {
             case "heading":
-                return <h2 className={BlogStyles.sectionHeader}>{content}</h2>
+                return <h2 className="sectionHeader">{content}</h2>
                 break
             case "text":
                 return <p className={BlogStyles.text}>{content}</p>
+                break
+            case "text_italic":
+                return <p className={BlogStyles.text} style={{textAlign: "center"}}><i>{content}</i></p>
                 break
             case "image":
                 return <img src={content} className={BlogStyles.imgPreview} alt="related to article" />
@@ -59,7 +65,7 @@ const ArticlePage = () => {
     }
 
     return (
-        <div>
+        <div className={darkMode ? "dark" : null}>
             <Navbar />
             {
                 loading ?

@@ -1,17 +1,11 @@
-.sectionHeader{
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color: rgb(1, 58, 163);
-}
-
 .coverPicture{
     height: 50px;
-    background: linear-gradient(166deg, rgb(1, 58, 163) 0% ,rgb(7,191,167) 100%); 
+    background-color: rgb(7,191,167);
     padding-left: 10px;
+    padding-right: 15px;
     padding-top: 2px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
 }
 
 .coverPicture p{

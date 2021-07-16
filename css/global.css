@@ -4,12 +4,38 @@
     max-width: 1000px;
     margin-left: 50%;
     transform: translateX(-50%);
+    min-height: 100vh;
+}
+
+.dark{
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.sectionHeader{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #0481a5;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.dark .sectionHeader{
+    color: white;
 }
 
 .pageHeader{
     font-size: 40px;
     margin-bottom: 0px;
     font-weight: bold;
+}
+
+.dark .pageHeader{
+    color: white;
 }
 
 .pageHeaderAlt{

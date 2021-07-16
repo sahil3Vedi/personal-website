@@ -6,6 +6,7 @@ import BlogStyles from '../../css/blog.module.css'
 import articles from '../../articles/articles.content.json'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { useDarkModeContext } from '../../context/darkMode'
 
 const BlogPage = () => {
 
@@ -13,8 +14,10 @@ const BlogPage = () => {
         TagManager.initialize({ gtmId: 'GTM-5W2CRT3' })
     }, [])
 
+    const { darkMode }: any = useDarkModeContext()
+
     return(
-        <div>
+        <div className={darkMode ? "dark" : null}>
             <Head>
                 <title>Blog - Sahil Trivedi</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
