@@ -8,12 +8,12 @@ import Navbar from '../components/navbar'
 import { useDarkModeContext } from '../context/darkMode'
 
 // Qrips
-const qrgal5 = require('../public/static/Qrips/Scr5.png')
-const qrgal6 = require('../public/static/Qrips/Scr6.png')
-const qrgal7 = require('../public/static/Qrips/Scr7.png')
-const qrgal8 = require('../public/static/Qrips/Scr8.png')
-const qrgal9 = require('../public/static/Qrips/Scr9.png')
-const qrgal10 = require('../public/static/Qrips/Scr10.png')
+const qrgal5 = 'https://i.imgur.com/JRlG7W0.png'
+const qrgal6 = 'https://i.imgur.com/yky1AHL.png'
+const qrgal7 = 'https://i.imgur.com/CRhWcME.png'
+const qrgal8 = 'https://i.imgur.com/wTWzefJ.png'
+const qrgal9 = 'https://i.imgur.com/FLyCldl.png'
+const qrgal10 = 'https://i.imgur.com/6FPy69A.png'
 
 const projects = [
     {

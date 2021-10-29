@@ -51,7 +51,7 @@
 .ant-carousel .slick-dots-bottom {
     padding: 10px;
     border-radius: 10px;
-    background-color: rgb(42, 170, 170);
+    background-color: gray !important;
 }
 
 .ant-modal-header {
@@ -67,7 +67,7 @@
 }
 
 .ant-carousel .slick-dots li.slick-active button {
-    background: rgb(1, 58, 163);
+    background: black !important;
 }
 
 .ant-carousel .slick-dots-bottom {
