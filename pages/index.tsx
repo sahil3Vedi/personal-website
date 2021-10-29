@@ -18,17 +18,69 @@ const xmrqr = require('../public/static/xmrqr.png')
 
 
 const interests = [
-    'Machine Learning',
-    'Software Development',
-	'Problem Solving ',
-    'DevOps',
-    'Mathematics',
     'GNU / Linux',
+    'Cricket',
+    'Soccer',
+    'Music',
+    'Mathematics',
+    'Compilers',
     'Blockchain',
-	'Software Testing',
+    'Augmented Reality',
+	'Cooking',
     'Cybersecurity',
-    'Systems Engineering',
-    'Music'
+    'Physics',
+    'Gaming',
+    'Soviet Union',
+    'Electronics',
+    'Radio',
+    'Open Source',
+    'FL Studio',
+    'Solzhenitsyn',
+    'Hip Hop',
+    'Gentoo Linux',
+    'PopOS',
+    'Linux Mint',
+    'Camping',
+    'Fedora',
+    'Bostrom',
+    'Astrophysics',
+    'Asteroid Mining',
+    'Joscha Bach',
+    'Geography',
+    'History',
+    'Automation',
+    'DeFi',
+    'GPUs & TPUs',
+    'Coffee',
+    'Wine',
+    'Bread',
+    'French',
+    'Japanese',
+    'Latin America',
+    'Central Asia',
+    'Rockets',
+    'Robotics',
+    'Neurology',
+    'Charlie aka MoistCr1TiKaL'
+]
+
+const skill_areas = [
+    {
+        name: 'Languages',
+        skills:['Python','TypeScript','C++','Java','Bash']
+    },
+    {
+        name: 'Machine Learning',
+        skills: ['Tensorflow','PyTorch','OpenCV','NLTK','Scikit','Ensembling','Research']
+    },
+    {
+        name: 'Backend',
+        skills: ['Flask','Node','AWS','Docker','MongoDB','SQL']
+    },
+    {
+        name: 'Frontend',
+        skills: ['React','Next.js','WebGL','CSS','JSX']
+    }
 ]
 
 const skills = [
@@ -88,15 +140,15 @@ const IndexPage = () => {
                   	<div>
                     	<p className="sectionHeader">About</p>
                     	<div className="wordWrap">
-                      		<p className={HomeStyles.about}>Full Stack Engineer with 2 years of experience building data driven software, from prototype to production. A fast learner with a penchant for applying his skills across multiple domains.</p>
+                      		<p className={HomeStyles.about}>Software Engineer with over 2 years of experience building data driven software, from prototype to production. A fast learner with a penchant for applying his skills across multiple domains.</p>
                             <p className={HomeStyles.about}>I write about Machine Learning, Software Engineering, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
                             <Link href="/blog"><Button className="btnMonero">View Blog</Button></Link>
                     	</div>
                     </div>
                     <div>
-                        <p className="sectionHeader">Research</p>
+                        <p className="sectionHeader">Research Areas</p>
 						<div className="wordWrap">
-					  		<p className={HomeStyles.about}>Currently Researching:<br/>- Dynamic & Scalable Recommendation Engines<br/>- Incremental Optimisation in CNNs<br/>- Fluid Simulations with Neural Networks</p>
+					  		<p className={HomeStyles.about}>- Computer Vision<br/>- Reinforcement Learning<br/>- Generative Models<br/>- Graph Neural Networks<br/>- Dynamic Systems<br/>- Physics Simulations</p>
                             <p className={HomeStyles.about}>Want to fund my work? I accept donations in <span style={{ color: "rgb(7,191,167)", cursor: "pointer" }} onClick={() => window.open('https://en.wikipedia.org/wiki/Monero', '_blank')}>Monero</span></p>
                             <Button className="btnMonero" onClick={() => setXmrModal(true)}>View XMR QR</Button>
 						</div>
@@ -105,13 +157,14 @@ const IndexPage = () => {
                   <div className={HomeStyles.displayInfo}>
                       <div>
                           <p className="sectionHeader">Skills</p>
-                          <List size="large" bordered dataSource={skills} renderItem={(item) => (
-                              <List.Item><List.Item.Meta avatar={<Avatar shape="square" src={item.src} />} title={item.title} description={<Progress percent={item.progress}/>}/></List.Item>
+                          <List size="large" bordered dataSource={skill_areas} renderItem={(item) => (
+                              <List.Item><List.Item.Meta title={item.name} description={<div>{item.skills.map((t, count) => <Tag style={{fontSize:"20px",padding:"5px",margin:"5px"}} color="#1C81A5" key={count}>{t}</Tag>)}</div>}/></List.Item>
                           )}/>
                       </div>
                       <div>
                           <p className="sectionHeader">Interests</p>
-                          <List size="large" bordered dataSource={interests} renderItem={item => <List.Item>{item}</List.Item>}/>
+                          <p className={HomeStyles.about}>Here's a few things that make my head turn</p>
+                          <div>{interests.map((t, count) => <Tag style={{fontSize:"20px",padding:"5px",margin:"5px"}} color="gray" key={count}>{t}</Tag>)}</div>
                         </div>
                   </div>
               </div>

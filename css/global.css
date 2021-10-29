@@ -12,6 +12,13 @@
     color: white;
 }
 
+.researchHeader{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
 .sectionHeader{
     font-weight: bold;
     font-size: 18px;
