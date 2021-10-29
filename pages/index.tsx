@@ -11,10 +11,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faDocker } from '@fortawesome/free-brands-svg-icons'
 
 // IMAGES
-const profileImage = require('../public/static/sahil.jpg')
+const profileImage = 'https://i.imgur.com/RIbDVtw.jpeg'
 
 // XMR
-const xmrqr = require('../public/static/xmrqr.png')
+const xmrqr = 'https://i.imgur.com/zVS7EnL.png'
 
 
 const interests = [
