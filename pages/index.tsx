@@ -163,7 +163,6 @@ const IndexPage = () => {
                       </div>
                       <div>
                           <p className="sectionHeader">Interests</p>
-                          <p className={HomeStyles.about}>Here's a few things that make my head turn</p>
                           <div>{interests.map((t, count) => <Tag style={{fontSize:"20px",padding:"5px",margin:"5px"}} color="gray" key={count}>{t}</Tag>)}</div>
                         </div>
                   </div>

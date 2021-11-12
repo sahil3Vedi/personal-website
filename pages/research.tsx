@@ -9,6 +9,16 @@ import { useDarkModeContext } from '../context/darkMode'
 
 const projects = [
     {
+        title: "Mapping a sphere's surface to a 2D plane",
+        description: "We can parameterise the surface of a sphere and map it's points to an infinite 2D plane with a continuous, modular transform.",
+        features: [],
+        learning:"",
+        tags: ["Neural Networks", "Signal Processing", "Supervised Learning"],
+        github: "https://github.com/sahil3Vedi/Face-Generator",
+        gallery: [],
+        pdf: "abc"
+    },
+    {
         title: "Optimisation with Progressive Sharpening in Deep Neural Networks",
         description: "Introducing Progressive Sharpening, a method for optimising convolutional and fully connected layers in neural networks. This is achieved by creating incrementally denoised (blurred) copies of the training data",
         features: [],
