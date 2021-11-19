@@ -17,52 +17,7 @@ const profileImage = 'https://i.imgur.com/RIbDVtw.jpeg'
 const xmrqr = 'https://i.imgur.com/zVS7EnL.png'
 
 
-const interests = [
-    'GNU / Linux',
-    'Cricket',
-    'Soccer',
-    'Music',
-    'Mathematics',
-    'Compilers',
-    'Blockchain',
-    'Augmented Reality',
-	'Cooking',
-    'Cybersecurity',
-    'Physics',
-    'Gaming',
-    'Soviet Union',
-    'Electronics',
-    'Radio',
-    'Open Source',
-    'FL Studio',
-    'Solzhenitsyn',
-    'Hip Hop',
-    'Gentoo Linux',
-    'PopOS',
-    'Linux Mint',
-    'Camping',
-    'Fedora',
-    'Bostrom',
-    'Astrophysics',
-    'Asteroid Mining',
-    'Joscha Bach',
-    'Geography',
-    'History',
-    'Automation',
-    'DeFi',
-    'GPUs & TPUs',
-    'Coffee',
-    'Wine',
-    'Bread',
-    'French',
-    'Japanese',
-    'Latin America',
-    'Central Asia',
-    'Rockets',
-    'Robotics',
-    'Neurology',
-    'Charlie aka MoistCr1TiKaL'
-]
+const interests = []
 
 const skill_areas = [
     {
@@ -161,10 +116,6 @@ const IndexPage = () => {
                               <List.Item><List.Item.Meta title={item.name} description={<div>{item.skills.map((t, count) => <Tag style={{fontSize:"20px",padding:"5px",margin:"5px"}} color="#1C81A5" key={count}>{t}</Tag>)}</div>}/></List.Item>
                           )}/>
                       </div>
-                      <div>
-                          <p className="sectionHeader">Interests</p>
-                          <div>{interests.map((t, count) => <Tag style={{fontSize:"20px",padding:"5px",margin:"5px"}} color="gray" key={count}>{t}</Tag>)}</div>
-                        </div>
                   </div>
               </div>
             </div>

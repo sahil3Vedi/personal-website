@@ -1,32 +1,6 @@
 
 {
     "articles":[
-        {
-            "title": "I was invited to try Github Copilot",
-            "description": "Github announced Copilot, an AI assistant for programmers, back in June this year. I tested what it can and cannot do (yet).",
-            "img": "https://www.kdnuggets.com/wp-content/uploads/github-copilot-logo.jpg",
-            "link": "testing_github_copilot",
-            "date": "02 Nov 2021",
-            "time": "10mins",
-            "elements": [
-                {
-                    "type":"text",
-                    "content": "Copilot was initially released to a few Youtubers and people with an active following in tech. There was quite a hype surrounding it during the first couple of weeks. Everyone with access was posting about their use of Copilot (which is what the folks behind Copilot intended), and similar to when OpenAI released GPT-3, there was widespread speculation as to whether it will replace programmers in the future."
-                },
-                {
-                    "type":"text",
-                    "content": "I've used Copilot for coding in Python and TypeScript with VSCode for a few days and thought I'll share some of the most interesting things Copilot has prompted to me. Both of these languages are commonly used with a large corpora of open source repositories to use as training data, we can expect Copilot's predictions for these languages to be spot on."
-                },
-                {
-                    "type": "heading",
-                    "content": "1. Predicting Math formulae"
-                },
-                {
-                    "type": "text",
-                    "content": "I asked Copilot to predict a bunch of mathematical formulae based on the name of the function and it's parameters."
-                }
-            ]
-        },
 		{
             "title": "The Math inside Neural Networks",
             "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",
