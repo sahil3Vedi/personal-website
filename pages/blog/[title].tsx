@@ -43,6 +43,9 @@ const ArticlePage = () => {
             case "text":
                 return <p className={BlogStyles.text}>{content}</p>
                 break
+            case "text_bold":
+                return <p className={BlogStyles.textBold}>{content}</p>
+                break
             case "text_italic":
                 return <p className={BlogStyles.text} style={{textAlign: "center"}}><i>{content}</i></p>
                 break

@@ -1,6 +1,248 @@
 
 {
     "articles":[
+        {
+            "title": "Complex Variables as Matrices",
+            "description": "Points on the complex plane can be represented by 2x2 matrices. When used with Power Series expansions of functions, this is a useful notation for computers to execute operations.",
+            "img": "https://i.imgur.com/puCsQ4l.png",
+            "link": "matrix_representation_of_complex_variables",
+            "date": "28 November 2021",
+            "time": "10 mins",
+            "elements": [
+                {
+                    "type": "heading",
+                    "content": "1. Introduction"
+                },
+                {
+                    "type": "text",
+                    "content": "Complex numbers are generally represented by the formula"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/Bhowm5e.png"
+                },
+                {
+                    "type": "text",
+                    "content": "However, they can also be represented as 2X2 matrices."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/P8pz2LY.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Using this representation we eliminate the necessity of using i to denote the direction orthogonal to the real axis. The real and imaginary axes on the complex planes are base vectors in R2 space. Matrices of the form"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/JEFlPUB.png"
+                },
+                {
+                    "type": "text",
+                    "content": "form a set over which addition and multiplication is commutative, and division is defined for matrices with a non-zero determinant. The only condition under which the determinant of a matrix of this form becomes 0 is if (a,b) equals (0,0). The determinant is the square of the distance of the complex number from the origin of the complex plane."
+                },
+                {
+                    "type": "text",
+                    "content": "Besides addition, multiplication, and division, we can also define exponents over this group."
+                },
+                {
+                    "type": "heading",
+                    "content": "2. Logarithms of Complex Variables"
+                },
+                {
+                    "type": "text",
+                    "content": "Because the group is defined over the set"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/vXS4C78.png"
+                },
+                {
+                    "type": "text",
+                    "content": "A complex number raised to the power of another complex number can be denoted by"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/XKdi1B8.png"
+                },
+                {
+                    "type": "text",
+                    "content": "In classical notation a complex number with unit magnitude can be described by"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/8b9cEK8.png"
+                },
+                {
+                    "type": "text",
+                    "content": "In matrix representation, this is expressed as"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/vRaVKlK.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Taking the logarithm on both sides,"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/CJC1eUf.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can make good use of this result while calculating logarithms. For any complex number z:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/7Znsapt.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can represent z, r, and θ in terms of a and b."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/EqtUeNH.png"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/sNgbgpj.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Based on this conversion can derive a general expression for calculating logarithms for complex numbers"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/Q9sWOoB.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "3. Exponents of Complex Variables"
+                },
+                {
+                    "type": "text",
+                    "content": "Given this result we can finally calculate exponents for matrices"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/erDqQdb.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We decompose this matrix into it’s real and imaginary components and write the z1^z2 in the exponential form, such that:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/adsrUt6.png"
+                },
+                {
+                    "type": "text",
+                    "content": "where"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/uCtAvEo.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Finally, we get the value of z1^z2"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/fdzDUpt.png"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/6pZjInN.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "4. So, is there a solution?"
+                },
+                {
+                    "type": "text",
+                    "content": "We do have a few techniques to find solutions of the form z = a + ib for the value of z1^z2 = (a1 + ib1)^(a2 + ib2). Depending on the values of a1, b1, a2 and b2 :"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(i) a1 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/EOpMYjT.png"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(ii) b1 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/dAeGre4.png"
+                },
+                {
+                    "type" : "text",
+                    "content": "While (a1)^(a2) is real, (a1^b2)^i may or may not be real."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(iii) a2 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/mi8q098.png"
+                },
+                {
+                    "type" : "text",
+                    "content": "We can convert the equation to an exponential form"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/IkGJurK.png"
+                },
+                {
+                    "type" : "text",
+                    "content": "Both of these terms may or may not be real. There are cases where log(z1) cancels out with i or b2 and the solution becomes easier to calculate."
+                },
+                {
+                    "type" : "text",
+                    "content": "In any case you can always use the power series expansions of e, sin(θ) and log(z) to compute the answers to the needed degree."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(iv) b2 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/ZAGHESs.png"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "How computers perform matrix exponentiation"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/Csnzblc.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Computers mainly use the power series for functions like e, sin(θ) and log(z)."
+                },
+                {
+                    "type": "text",
+                    "content": "Also note that i^i has multiple real solutions due to sin and cos being modular transforms."
+                },
+                {
+                    "type": "heading",
+                    "content": "5.Conclusion"
+                },
+                {
+                    "type": "text",
+                    "content": "We saw how complex numbers can be represented as matrices and how operations like logarithms and exponentiations can be achieved for complex numbers. If none of these techniques work you always have the option of using the power series expansions to get an approximation. However, you should be on the lookout for terms that eliminate themselves and reduce your computational overhead."
+                }
+            ]
+        },
 		{
             "title": "The Math inside Neural Networks",
             "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",

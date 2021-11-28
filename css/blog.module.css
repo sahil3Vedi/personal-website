@@ -26,6 +26,13 @@
     line-height: 28px;
 }
 
+.textBold{
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
 .sectionHeader{
     font-size: 30px;
     font-weight: bold;
