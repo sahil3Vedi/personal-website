@@ -1,0 +1,747 @@
+
+{
+    "articles":[
+        {
+            "title": "How Bitcoin Transactions Work",
+            "description": "Transactions on the Bitcoin network are verified with proof-of-work. But how exactly does a decentralized network arrive at consensus? We take a closer look at the journey of a Bitcoin transaction from a sender to it's receiver.",
+            "img": "https://i.imgur.com/1Bs5Dph.png",
+            "link": "how-bitcoin-transactions-work",
+            "date": "21 Apr 2022",
+            "time": "20 mins",
+            "elements":[
+                {
+                    "type": "text",
+                    "content": "There are three reasons why I am writing this post. First, because Bitcoin is relatively minimal and easy to understand. It is difficult to understand blockchains, cryptocurrencies, and decentralised consensus if one doesn't attempt to understand Bitcoin. Second, this post will serve as context for when I comment on the design of decentralised systems and cryptocurrenices in future articles. Third, I wish to compile a concise yet comprehensive introduction to Bitcoin for developers, something I would've liked when I was learning about Bitcoin."
+                },
+                {
+                    "type": "text",
+                    "content": "Bitcoin is the most basic implementation of blockchain technology at such a large scale. It has survived for more than a decade and has upwards of 12,000 nodes worldwide. Blockchains consist of a devious interplay of encryption and hashing. These concepts are simple yet powerful - and are at the foundation of modern cybersecurity."
+                },
+                {
+                    "type": "heading",
+                    "content": "1. Introduction - Blockchains, Nodes, Miners, and Wallets"
+                },
+                {
+                    "type": "text",
+                    "content": "Bitcoin is a network. It has interconnected nodes that are constantly communicating with each other."
+                },
+                {
+                    "type":"text",
+                    "content": "Each node has a copy of all the Bitcoin transactions that have ever taken place, like a ledger. These transactions are stored in discrete units called blocks. All the blocks are chronologically linked to the previous block. The exact structure of a block is discussed in section 5 of this article."
+                },
+                {
+                    "type":"text",
+                    "content": "All nodes have their own copy of the blockchain. Nodes are constantly monitoring the network to check if a miner has discovered a new block, and add that block to their copy of the blockchain. New blocks are difficult and time consuming to discover, but once found, they can be quickly verified."
+                },
+                {
+                    "type":"text",
+                    "content": "Miners are special nodes that 'discover' these new blocks containing the latest transactions made on the network. Miners also earn a mining reward in addition to transaction fees for finding new blocks. Mining reward is responsible for adding new coins to the currency."
+                },
+                {
+                    "type":"text",
+                    "content": "Wallets, as the name suggests, are what we use to store our bitcoins. A wallet is described by it's private and public keys. The private key acts as a password to authorize the wallet's transactions and the public key is used to verify transactions made from that wallet. If someone know's your wallet's private key they can take all your bitcoin."
+                },
+                {
+                    "type":"text",
+                    "content": "A Bitcoin transaction goes through 3 stages: Signing, Broadcasting, and Confirmation."
+                },
+                {
+                    "type": "heading",
+                    "content": "2. Signing"
+                },
+                {
+                    "type":"text",
+                    "content": "The first step of any transaction is called signing. A transaction is described by three things - Sender's Wallet Address, Receiver's Wallet Address, & the Transaction Amount. More importantly, this file contains the sender's wallet signature which proves that they authorized the transaction."
+                },
+                {
+                    "type":"text",
+                    "content":"In addition to the amount being sent, a transaction fee is added to the transaction, which is paid by the sender to the miner as a reward for finding the block containing the transaction. The transaction fee generally depends on the network traffic and the size of the transaction."
+                },
+                {
+                    "type":"text",
+                    "content": "The transaction file is signed (or encrypted) using the sender's private key. The sender's public key can be used by everyone to verify (or decrypt) the transaction. The sender's private key is never shared with anyone. This is an example of asymmetric encryption. Most cryptocurrencies use ECC (Elliptic Curve Cryptography) for generating public and private keys."
+                },
+                {
+                    "type":"text",
+                    "content": "It's also interesting to note that the transaction will have a unique signature every single time. "
+                },
+                {
+                    "type": "heading",
+                    "content": "3. Broadcasting"
+                },
+                {
+                    "type": "text",
+                    "content": "This transaction is broadcasted to nodes across the network. Each node verifies whether the file is legit - whether the sender actually has the required funds, and whether the signature checks out. Once verified, the file is passed to other nodes on the network."
+                },
+                {
+                    "type": "text",
+                    "content": "When a node receives a transaction file, it is verified and kept in a holding area called the mempool (short for Memory Pool). This is where the valid, but unconfirmed transactions are stored."
+                },
+                {
+                    "type": "text",
+                    "content": "Once the file reaches the mempool for all online nodes on the network, we can say the Broadcasting of the transaction is complete. At this stage the transaction has been validated, but it's not yet confirmed."
+                },
+                {
+                    "type": "text",
+                    "content": "If you enter the transaction ID on a blockchain explorer at this stage, the transaction will be unconfirmed."
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/ae4teRz.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "4. Confirmation"
+                },
+                {
+                    "type": "text",
+                    "content": "Miners take the files from the mempool, group them together, and form a block of transactions. Each block can only contain a limited number of transactions (in case of bitcoin the maximum blocksize is 1MB). Miners are incentivised to prioritise transactions with the highest transaction fees."
+                },
+                {
+                    "type": "text",
+                    "content": "Miners compete among themselves to 'mine' the next valid block. To understand mining we need to understand what a block looks like."
+                },
+                {
+                    "type": "heading",
+                    "content": "5. What does a Block look like?"
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/xjILYrI.png"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "a. Version"
+                },
+                {
+                    "type": "text",
+                    "content": "Bitcoin's rules keep changing and the version number is used to determine which rules are in effect. The version number informs which rules are to be followed for validating blocks on the network. More information about this is can be found on the Bitcoin Wiki."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "b. Previous Block's Hash"
+                },
+                {
+                    "type": "text",
+                    "content": "Block hashes are generated by SHA-256 hashing, which returns a 32 byte hash. This is the hash of the previous block's 80 byte block header."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "c. Merkle Root"
+                },
+                {
+                    "type": "text",
+                    "content": "Transactions of the block are represented in the form of a Merkle Tree. The Merkle Root is a number that represents all the transactions recorded by the block. Changing the details of even a single transaction will return a completely different Merkle Root."
+                },
+                {
+                    "type": "image",
+                    "content": "https://blog.ycshao.com/2018/01/20/what-s-merkle-tree/merkle_tree.png"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "d. Time Stamp"
+                },
+                {
+                    "type": "text",
+                    "content": "The 32-bit timestamp denotes the time at which the block header was generated. There are rules in place that dictate the minimum and maximum value this can take. This is done to ensure that the miner is unable to lie about the time at which the block was created. To know more about it check out this article - https://www.dotwallet.com/en/article/169"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "e. N-bits"
+                },
+                {
+                    "type": "text",
+                    "content": "This 32-bit number is used to denote the target difficulty of the block. The target difficulty is the number of leading zeros required in the hash of the block header in order for it to be considered valid. Target difficulty periodically increases on the Bitcoin network, meaning the space of valid blocks is reduced. This makes it harder for a miner to find a valid block."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "f. Nonce"
+                },
+                {
+                    "type": "text",
+                    "content": "Nonce is 32bit number that is varied by the miner to find a valid block. Because of the nature of hashing, the miner does not know which nonce will return a valid block header that meets the difficulty requirement. The more observant among you might have noticed that the block header is a 32 byte string, whereas the nonce is 4 byte string. It is not uncommon for all nonces inside the nonce-space to not return a valid hash. Whenever this happens, the miner can change the order of transactions, create a new Merkle Root, and search a new nonce-input space."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "g. Transactions"
+                },
+                {
+                    "type": "text",
+                    "content": "The transactions are stored in an ordered list. Each transaction contains the sender's address, the receiver's address, and the transaction amount. The size of a single transaction can vary and mainly depends on the transaction amount. Because the maximum size of a Bitcoin block is 1MB, the maximum available size for transactions is roughly 900 bytes."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "h. Block Hash"
+                },
+                {
+                    "type": "text",
+                    "content": "The 80 byte block header is hashed using SHA-256 and the result is used as the block hash. The block hash is also used to verfiy the validity of the block. A valid block needs to have a block hash with N leading zeros, where N is the current network difficulty."
+                },
+                {
+                    "type": "heading",
+                    "content": "6. Proof of Work"
+                },
+                {
+                    "type": "text",
+                    "content": "The reason a valid block header serves as proof of work is because SHA-256 hashing is considered to be irreversible. As mentioned earlier, this implies that to find a valid block header the miner has to expend a lot of computation in order to hash a large number of potential block headers. Once a valid block header is found, it is incredibly fast to verify because calculating a single hash is quite fast."
+                },
+                {
+                    "type": "text",
+                    "content": "Once the block is mined, the miner broadcasts the block across the network which the nodes verify and add to their copy of the ledger. The miner also receives a mining reward for their efforts. Now imagine you are one of the miners competing to be the first to find a new block. The moment you or some other miner finds a valid block, all miners are incentivised to abandon their efforts to mine that particular block and instead immediately start mining for the next possible block."
+                },
+                {
+                    "type": "text",
+                    "content": "This is enforced using the Longest Chain Rule."
+                },
+                {
+                    "type": "heading",
+                    "content": "7. Longest Chain Rule"
+                },
+                {
+                    "type": "text",
+                    "content": "Because the blockchain is essentially a list of chronologically hashed transactions, there can be multiple such blockchains with different but all valid transactions that a node can verify. The Longest Chain Rule is what makes proof of work possible. According to it, the network considers the longest blockchain as the correct one. In other words, the ledger with the most (valid) blocks is considered to be the correct one."
+                },
+                {
+                    "type": "text",
+                    "content": "If a hacker wanted to update the blockchain, they would have to produce new valid blocks at a rate faster than all of the remaining network combined. This is called a 51% attack. A hacker needs to consolidate more than half of the network's mining hashrate in order to modify the ledger at their discretion. Estimates suggest that such an attack on the Bitcoin network would cost upwards of $600,000 US Dollars per hour."
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/emJ3HFI.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "8. Conclusion"
+                },
+                {
+                    "type": "text",
+                    "content": "We discussed how a Bitcoin transaction works from the sender to it's receiver. Because decentralised systems involve an element of game-theoretics, their rules need to account for human behaviour. I have attempted to explain Bitcoin's rules in this post but there are entire books written about the various design considerations in Decentralised Systems and Blockchains. In future posts I will expand on how effective these rules are and areas where other cryptocurrencies offer better solutions."
+                }
+            ]
+        },
+        {
+            "title": "Complex Variables as Matrices",
+            "description": "Points on the complex plane can be represented by 2x2 matrices. When used with Power Series expansions of functions, this is a useful notation for computers to execute operations.",
+            "img": "https://i.imgur.com/puCsQ4l.png",
+            "link": "matrix_representation_of_complex_variables",
+            "date": "28 November 2021",
+            "time": "10 mins",
+            "elements": [
+                {
+                    "type": "heading",
+                    "content": "1. Introduction"
+                },
+                {
+                    "type": "text",
+                    "content": "Complex numbers are generally represented by the formula"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/Bhowm5e.png"
+                },
+                {
+                    "type": "text",
+                    "content": "However, they can also be represented as 2X2 matrices."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/P8pz2LY.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Using this representation we eliminate the necessity of using i to denote the direction orthogonal to the real axis. The real and imaginary axes on the complex planes are base vectors in R2 space. Matrices of the form"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/JEFlPUB.png"
+                },
+                {
+                    "type": "text",
+                    "content": "form a set over which addition and multiplication is commutative, and division is defined for matrices with a non-zero determinant. The only condition under which the determinant of a matrix of this form becomes 0 is if (a,b) equals (0,0). The determinant is the square of the distance of the complex number from the origin of the complex plane."
+                },
+                {
+                    "type": "text",
+                    "content": "Besides addition, multiplication, and division, we can also define exponents over this group."
+                },
+                {
+                    "type": "heading",
+                    "content": "2. Logarithms of Complex Variables"
+                },
+                {
+                    "type": "text",
+                    "content": "Because the group is defined over the set"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/vXS4C78.png"
+                },
+                {
+                    "type": "text",
+                    "content": "A complex number raised to the power of another complex number can be denoted by"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/XKdi1B8.png"
+                },
+                {
+                    "type": "text",
+                    "content": "In classical notation a complex number with unit magnitude can be described by"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/8b9cEK8.png"
+                },
+                {
+                    "type": "text",
+                    "content": "In matrix representation, this is expressed as"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/vRaVKlK.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Taking the logarithm on both sides,"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/CJC1eUf.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can make good use of this result while calculating logarithms. For any complex number z:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/7Znsapt.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can represent z, r, and θ in terms of a and b."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/EqtUeNH.png"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/sNgbgpj.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Based on this conversion can derive a general expression for calculating logarithms for complex numbers"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/Q9sWOoB.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "3. Exponents of Complex Variables"
+                },
+                {
+                    "type": "text",
+                    "content": "Given this result we can finally calculate exponents for matrices"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/erDqQdb.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We decompose this matrix into it’s real and imaginary components and write the z1^z2 in the exponential form, such that:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/adsrUt6.png"
+                },
+                {
+                    "type": "text",
+                    "content": "where"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/uCtAvEo.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Finally, we get the value of z1^z2"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/fdzDUpt.png"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/6pZjInN.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "4. So, is there a solution?"
+                },
+                {
+                    "type": "text",
+                    "content": "We do have a few techniques to find solutions of the form z = a + ib for the value of z1^z2 = (a1 + ib1)^(a2 + ib2). Depending on the values of a1, b1, a2 and b2 :"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(i) a1 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/EOpMYjT.png"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(ii) b1 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/dAeGre4.png"
+                },
+                {
+                    "type" : "text",
+                    "content": "While (a1)^(a2) is real, (a1^b2)^i may or may not be real."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(iii) a2 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/mi8q098.png"
+                },
+                {
+                    "type" : "text",
+                    "content": "We can convert the equation to an exponential form"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/IkGJurK.png"
+                },
+                {
+                    "type" : "text",
+                    "content": "Both of these terms may or may not be real. There are cases where log(z1) cancels out with i or b2 and the solution becomes easier to calculate."
+                },
+                {
+                    "type" : "text",
+                    "content": "In any case you can always use the power series expansions of e, sin(θ) and log(z) to compute the answers to the needed degree."
+                },
+                {
+                    "type": "text_bold",
+                    "content": "(iv) b2 = 0"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/ZAGHESs.png"
+                },
+                {
+                    "type": "text_bold",
+                    "content": "How computers perform matrix exponentiation"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/Csnzblc.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Computers mainly use the power series for functions like e, sin(θ) and log(z)."
+                },
+                {
+                    "type": "text",
+                    "content": "Also note that i^i has multiple real solutions due to sin and cos being modular transforms."
+                },
+                {
+                    "type": "heading",
+                    "content": "5.Conclusion"
+                },
+                {
+                    "type": "text",
+                    "content": "We saw how complex numbers can be represented as matrices and how operations like logarithms and exponentiations can be achieved for complex numbers. If none of these techniques work you always have the option of using the power series expansions to get an approximation. However, you should be on the lookout for terms that eliminate themselves and reduce your computational overhead."
+                }
+            ]
+        },
+		{
+            "title": "The Math inside Neural Networks",
+            "description": "Neural Networks are universal function approximators - but how exactly? We look at the math that makes them work.",
+            "img": "https://victorzhou.com/media/nn-series/network.svg",
+            "link": "the_math_inside_neural_networks",
+            "date": "06 July 2021",
+            "time": "10 mins",
+            "elements": [
+                {
+                    "type": "text",
+                    "content": "This article is intended for those who have an undergraduate level understanding of linear algebra, calculus, as well as some introductory knowledge of vanilla neural neworks. I've tried my best to keep things simple without turning this into an 'Introduction to Neural Networks' article."
+                },
+                {
+                    "type": "heading",
+                    "content": "I. Introduction"
+                },
+                {
+                    "type": "text",
+                    "content": "There are three primary processes that go on inside a vanilla multilayered neural network in a supervised learning setup:"
+                },
+                {
+                    "type": "text",
+                    "content": "1. Feedforward - The network guesses an answer that is almost always incorrect."
+                },
+                {
+                    "type": "text",
+                    "content": "2. Error Calculation - The network calculates the amount of error between it's answer and the correct answer."
+                },
+                {
+                    "type": "text",
+                    "content": "3. Backpropagation - The network updates it's parameters (or weights) to minimise the error."
+                },
+                {
+                    "type": "text",
+                    "content": "We will analyse the mathematics of all three of these processes in order to reach an understanding of the overall system."
+                },
+                {
+                    "type": "heading",
+                    "content": "II. Feedforward"
+                },
+                {
+                    "type": "text",
+                    "content": "A neural network converts a vector X in an input space Rx to a vector Y in an output space Ry. Since a vector is being transformed from one space to another, we know a matrix is involved. This matrix is actually the weights of that particular layer. Thus, each layer after the input layer represents a vector transformation with a corresponding weight matrix."
+                },
+                {
+                    "type": "text",
+                    "content": "We take a closer look by analysing the set of operations inside the first hidden layer. Let's say the input layer has a total 'N' number of neurons and the first hidden layer has a total 'M' number of neurons."
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/HesefMW.jpg"
+                },
+                {
+                    "type": "text",
+                    "content": "Mathematically, this is just standard matrix multiplication:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/gLxc3F2.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We now have a system that converts vectors from one vector space to another. If this was the only operation in each layer, the entire neural network could be represented as a single weight matrix by post-multiplying the weight matrices of each layer. Of course, that is not what happens!"
+                },
+                {
+                    "type": "text",
+                    "content": "The reason we have multiple layers in the network is because each layer has an activation function. An activation function squishes the outputs of a layer into a certain range. Because there are no restrictions on how large the values inside X or W can be, after a few multiplications the magnitude of values inside H can increase to the point where computers run out of space to store those values. Besides, we dont need very large values for tasks like classification or probabilistic prediction."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/8bzOMFJ.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We thus obtain the final activation values of the first layer after passing H through an activation function. Generally, we want the following characteristics in an activation function:"
+                },
+                {
+                    "type": "text",
+                    "content": "(i) It should be monotonic increasing (in other words, an increase in h should result in an increase in a)."
+                },
+                {
+                    "type": "text",
+                    "content": "(ii) It should be bounded to a certain interval. This could either be a lower bound, upper bound, or both."
+                },
+                {
+                    "type": "text",
+                    "content": "(iii) It should be differentiable. We will discuss why this is important during backpropagation."
+                },
+                {
+                    "type": "text",
+                    "content": "Two functions that fit this requirement are the sigmoid function and the tanh function. Of course, there are more activation functions for other use cases but let's consider these two for now. The graph below shows us how these functions constrain the input. The sigmoid function is in blue and the tanh function is in green."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/BWKz3oU.png"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/rVh6kLf.png"
+                },
+                {
+                    "type": "text",
+                    "content": "This process of weight multiplication followed by activation is repeated for each layer, till we reach the final layer. If we want to express this in form of pseudocode, we can do it as follows :"
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/3aFaYnJ.png"
+                },
+                {
+                    "type": "text",
+                    "content": "The layers include the output layer of the network. This means at the end of the forward pass we have the output of the entire network. The number of elements in the output will be equal to the number of neurons in the output layer. At this point our network has guessed an answer, which is most likley wrong since it is an untrained network. Up next, we will describe how the network quantifies it's error."
+                },
+                {
+                    "type": "heading",
+                    "content": "III. Error Calculation"
+                },
+                {
+                    "type": "text",
+                    "content": "In supervised learning we have labelled outputs for our inputs during training. We call these labels 'targets'. To calculate the error in the network's output Y we need to compare it to the corresponding target T. But how exactly do we determine the error. Do we simply subtract Y from T?"
+                },
+                {
+                    "type": "text",
+                    "content": "Whatever the error is, we ideally want to minimise it. Error is also referred to as the 'Loss' of the network. Whatever this loss function is, it should be as low as possible for maximum accuracy of the network. Let us plot the target T and the output Y on a graph."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/lBw87fp.png"
+                },
+                {
+                    "type": "text",
+                    "content": "The red line on the graph denotes y = t, which is the optimal condition. The blue point denotes any point (y0,t0) for any input x0. What we really want is to minimise the distance between the line (y = t) and the point (y0,t0). This gives us a good starting point for defining the loss function."
+                },
+                {
+                    "type": "text",
+                    "content": "The distance between any point (y0,t0) and the line (y=t) can be described using the formula: "
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/rdB6LnB.png"
+                },
+                {
+                    "type": "text",
+                    "content": "To minimise d, we minimise |y0 - t0|. Assuming there are K elements in the output layer, we define the loss function E as:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://imgur.com/xvxPnxT.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We have described E mathematically. That's nice, but we took all this trouble to answer the question - How much should the weights of the network be adjusted in a way that reduces E? Introducing Backpropagation."
+                },
+                {
+                    "type": "heading",
+                    "content": "IV. Backpropagation"
+                },
+                {
+                    "type": "text",
+                    "content": "Before we adjust the weights of the entire network, we need to determine the error for each layer. The loss function E denotes the error for the network, that's true. But more specifically, it is the error of the output layer."
+                },
+                {
+                    "type": "text",
+                    "content": "Backpropagation is a popular approach to solve this problem. Starting from the output layer, the error propagates backwards until the weights of all layers have been updated. Let us first look at how we update the weights in the output layer."
+                },
+                {
+                    "type": "text",
+                    "content": "To do that we first express E as a function of the weights of the output layer. If Wyz denotes the weight matrix of the output layer, and A denotes the activations of the second last layer:"
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/JBV4Qh6.jpg"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/MA3cPuy.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Next we calculate the gradient of E with respect to Wyz using the chain rule:"
+                },
+                {
+                    "type":"latex",
+                    "content": "https://i.imgur.com/F2All1f.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can resolve these three terms individually very easily. Let's start with dE/dY: "
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/ONgRnBR.png"
+                },
+                {
+                    "type": "text",
+                    "content": "To calculate dY/dZ, recall that Y=f(Z) where f is the activation function. This is why we insist on having a differentiable activation function."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/DYhpTyI.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We have a trick to quickly compute the derivates. The derivatives of the sigmoid and tanh functions can be represented as follows:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://imgur.com/KBcafpB.png"
+                },
+                {
+                    "type": "text",
+                    "content": "dZ/dWyz is actually just Ay"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/P7zWOlf.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can rewrite the dE/dWyz as:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/6YoMFSV.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We can also determine the gradient for each connection Wij in the matrix Wyz. Also note that we can safely ignore the '2' in the equation because we are not concerned with the coefficients."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/cUTrxzC.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Thus the new value of any connection Wij in the matrix Wyz is written as follow. The symbol gamma (r) represents the learning rate and accounts of all coefficients. This is also why we discarded the '2' previously."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://imgur.com/8fLVZmb.png"
+                },
+                {
+                    "type": "text",
+                    "content": "We saw how a given weight Wij in the output layer can be updated. But to understand backpropagation for hidden layers we need to understand the matrices at play. In order to satisfy the dimensionality of the vectors, we take the transpose on the RHS and rewrite the matrix equation as follows:"
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/YDoLdoD.png"
+                },
+                {
+                    "type": "text",
+                    "content": "Here Dz is a ZxZ diagonal matrix containing the derivatives of the output activations."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/ss2H2sC.png"
+                },
+                {
+                    "type": "text",
+                    "content": "This is how computers calculate gradients. We finally calculate the gradients for the hidden layer with the weight matrix Wxy."
+                },
+                {
+                    "type": "latex",
+                    "content": "https://i.imgur.com/rp11Btv.png"
+                },
+                {
+                    "type": "text",
+                    "content": "The above process is repeated for the previous layers until we finally update the weights of the first hidden layer. Backpropagation can be summarised by pseudocode as follows:"
+                },
+                {
+                    "type": "image",
+                    "content": "https://i.imgur.com/dDrO2DY.png"
+                },
+                {
+                    "type": "heading",
+                    "content": "V. Conclusion"
+                },
+                {
+                    "type": "text",
+                    "content": "We discussed how neural networks are carefully coordinated matrix operations. If you found this article useful and want to study the concepts behind Neural Networks in detail, you may read 'Neural Networks - A Systemic Introduction' by Raul Rojas."
+                }
+            ]
+        }   
+    ]
+}

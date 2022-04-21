@@ -1,0 +1,125 @@
+.ant-list-item-meta-title{
+    font-size: 20px;
+}
+
+.ant-list-bordered{
+	border: 0px solid #ddd;
+    box-shadow: 2px 2px 10px #d0d0d0aa;
+    padding: 10px 2px;
+}
+
+.ant-list-item{
+    font-size: 20px;
+}
+
+.ant-progress-success-bg, .ant-progress-bg {
+    background-color: rgb(7,191,167);
+}
+
+.ant-btn{
+    margin-bottom: 10px;
+}
+
+.ant-card{
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 8px #d0d0d0aa;
+    border: 0px solid white !important;
+}
+
+.ant-card-head-title{
+    color: #0481a5;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 25px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.ant-card:hover .ant-card-head-title{
+    color: white;
+    background: #0481a5; ;
+}
+
+.ant-card-head{
+    border-bottom: 1px solid #dddddd66;
+    padding: 0px;
+}
+
+.ant-list-split .ant-list-item {
+    border-bottom: 0px solid #dadada;
+}
+
+.ant-carousel .slick-dots-bottom {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: gray !important;
+}
+
+.ant-modal-header {
+    border-bottom: none;
+}
+
+.ant-modal-close-x {
+    color: rgb(42, 170, 170);
+}
+
+.ant-modal-title {
+    color: rgb(42, 170, 170);
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+    background: black !important;
+}
+
+.ant-carousel .slick-dots-bottom {
+    bottom: -20px;
+}
+
+.ant-list{
+	border-radius: 25px;
+    background-color: whitemsoke;
+}
+
+.ant-card-bordered {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.ant-drawer-body{
+    padding: 0px;
+}
+
+.dark .ant-list-split .ant-list-item {
+    color: white;
+}
+
+.dark .ant-list-item-meta-title{
+    color: white;
+}
+
+.dark .ant-progress-text{
+    color: white;
+    font-weight: bold;
+}
+
+.dark .ant-list-bordered {
+    border: 0px solid #000;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #000;
+}
+
+.dark > .ant-drawer > .ant-drawer-body{
+    color: white !important;
+    background-color: #2f2f2f !important;
+}
+
+.dark .ant-card{
+    border: 0px solid #000;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #000;
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.dark .ant-card-head-title{
+    color: white;
+}
