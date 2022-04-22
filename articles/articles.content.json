@@ -39,7 +39,7 @@
                 },
                 {
                     "type":"text",
-                    "content": "Wallets, as the name suggests, are what we use to store our bitcoins. A wallet is described by it's private and public keys. The private key acts as a password to authorize the wallet's transactions and the public key is used to verify transactions made from that wallet. If someone know's your wallet's private key they can take all your bitcoin."
+                    "content": "Wallets, as the name suggests, are what we use to store our bitcoins. A wallet is described by it's private and public keys. The private key acts as a password to authorize the wallet's transactions and the public key is used to verify transactions made from that wallet. If someone knows your wallet's private key they can take all your bitcoin."
                 },
                 {
                     "type":"text",
