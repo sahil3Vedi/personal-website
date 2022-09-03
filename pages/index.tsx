@@ -22,19 +22,23 @@ const interests = []
 const skill_areas = [
     {
         name: 'Languages',
-        skills:['Python','TypeScript','C++','Java','Bash']
+        skills:['Python','TypeScript','C++','Rust','Bash','Java','Solidity','LaTeX']
+    },
+    {
+        name: 'Blockchain',
+        skills: ['Substrate','Polkadot','Web3','Ethers','Ethereum','Monero']
     },
     {
         name: 'Machine Learning',
-        skills: ['Tensorflow','PyTorch','OpenCV','NLTK','Scikit','Ensembling','Research']
+        skills: ['Tensorflow','PyTorch','Image Processing','Bayesian Inferencing','OpenCV','NLTK','Scikit','Ensembling','Research','Data Engineering']
     },
     {
         name: 'Backend',
-        skills: ['Flask','Node','AWS','Docker','MongoDB','SQL']
+        skills: ['Flask','Node','NestJS','AWS','Docker','MongoDB','OpenSearch','Django','SQL']
     },
     {
         name: 'Frontend',
-        skills: ['React','Next.js','WebGL','CSS','JSX']
+        skills: ['React','NextJS','ThreeJS','WebGL','CSS','JSX']
     }
 ]
 
