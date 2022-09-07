@@ -30,7 +30,7 @@ const skill_areas = [
     },
     {
         name: 'Machine Learning',
-        skills: ['Tensorflow','PyTorch','Image Processing','Bayesian Inferencing','OpenCV','NLTK','Scikit','Ensembling','Research','Data Engineering']
+        skills: ['Tensorflow','PyTorch','Image Processing','Bayesian Inferencing','OpenCV','NLTK','Scikit','FFMPEG','Ensembling','Research','Data Engineering']
     },
     {
         name: 'Backend',
