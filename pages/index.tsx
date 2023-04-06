@@ -38,7 +38,7 @@ const skill_areas = [
     },
     {
         name: 'Frontend',
-        skills: ['React','NextJS','ThreeJS','WebGL','CSS','JSX']
+        skills: ['React','Angular','NextJS','ThreeJS','WebGL','CSS','JSX']
     }
 ]
 
