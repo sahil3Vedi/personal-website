@@ -92,14 +92,14 @@ const IndexPage = () => {
                             <h1 className="pageHeader">Sahil Trivedi</h1>
                             <p className="pageHeaderDescription">Software Engineer</p>
                             <p className="pageHeaderDescription" onClick={() => window.open('https://www.github.com/sahil3vedi', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer"}}><GithubOutlined style={{ color: "rgb(7,191,167)" }} /> github.com/sahil3vedi</p>
-                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.linkedin.com/in/trivedi-sahil/', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><FontAwesomeIcon icon={faLinkedin} /> linkedin.com/in/trivedi-sahil</p>
+                            <p className="pageHeaderDescription" onClick={() => window.open('https://www.linkedin.com/in/trivedi-sahil/', '_blank')} style={{ color: "rgb(7,191,167)", cursor: "pointer" }}><FontAwesomeIcon icon={faLinkedin as any} /> linkedin.com/in/trivedi-sahil</p>
                         </div>
                   </div>
                   <div className={HomeStyles.displayInfo}>
                   	<div>
                     	<p className="sectionHeader">About</p>
                     	<div className="wordWrap">
-                      		<p className={HomeStyles.about}>Software Engineer with over 2 years of experience building data driven software, from prototype to production. A fast learner with a penchant for applying his skills across multiple domains.</p>
+                      		<p className={HomeStyles.about}>Software Engineer with over 3 years of experience building data driven software, from prototype to production. A fast learner with a penchant for applying his skills across multiple domains.</p>
                             <p className={HomeStyles.about}>I write about Machine Learning, Software Engineering, and Mathematics on my <Link href="/blog"><span style={{ color: "rgb(7,191,167)", cursor: "pointer" }}>Blog</span></Link>.</p>
                             <Link href="/blog"><Button className="btnMonero">View Blog</Button></Link>
                     	</div>
